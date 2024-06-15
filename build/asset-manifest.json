@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ae61efd5.css",
+    "main.js": "/static/js/main.9c22adcf.js",
+    "static/media/FiraSans-SemiBold.ttf": "/static/media/FiraSans-SemiBold.9b44246405e74df4837c.ttf",
+    "static/media/FiraSans-Light.ttf": "/static/media/FiraSans-Light.7ece67e11e181a7292ef.ttf",
+    "static/media/header-img.png": "/static/media/header-img.fca40fc7cf9d0adb0458.png",
+    "static/media/header.png": "/static/media/header.2885d43c7122cd1e0ba3.png",
+    "static/media/footer.png": "/static/media/footer.d63004b7ae6be25982c8.png",
+    "static/media/sapfira-violet.png": "/static/media/sapfira-violet.728589011e011f5414c4.png",
+    "static/media/sapfira-light.png": "/static/media/sapfira-light.a9cb9c6fbcb6b36713ac.png",
+    "static/media/Vezitsa.ttf": "/static/media/Vezitsa.4480647ce079300bfccb.ttf",
+    "static/media/vk.png": "/static/media/vk.e2a1a3ce89bc13bbe780.png",
+    "static/media/whatsapp.png": "/static/media/whatsapp.84276b8ea126d6c22d0e.png",
+    "static/media/telegram.png": "/static/media/telegram.912032e84a4ed3e5b4fb.png",
+    "index.html": "/index.html",
+    "main.ae61efd5.css.map": "/static/css/main.ae61efd5.css.map",
+    "main.9c22adcf.js.map": "/static/js/main.9c22adcf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae61efd5.css",
+    "static/js/main.9c22adcf.js"
+  ]
+}
