@@ -27,6 +27,7 @@ const Header = () => {
       animateTitles();
       animateImg();
     });
+    
 
     return () => {
       window.removeEventListener('load', animateTitles);
@@ -56,10 +57,11 @@ const Header = () => {
           <img src={logoSrc} alt="" className="nav__img" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
           <ul className="nav__list">
             <li className="nav__items">ГЛАВНАЯ</li>
-            <li className="nav__items">О НАС</li>
             <li className="nav__items">КОНТАКТЫ</li>
             <li className="nav__items">ДОСТАВКА</li>
             <li className="nav__items">ОСТАВИТЬ ЗАЯВКУ</li>
+            <li className="nav__items">ВОЙТИ</li>
+            <li className="nav__items">имя</li>
           </ul>
         </div>
         <div className='header__banner-box'>

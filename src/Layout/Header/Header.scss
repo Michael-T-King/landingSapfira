@@ -45,7 +45,7 @@
   }
 }
 
-.nav__items:nth-child(5) {
+.nav__items:nth-child(4) {
   color: #efa244;
   border: 1px solid #efa244;
   border-radius: 2rem;
@@ -54,6 +54,14 @@
   &:active {
     color: #e8b545;
     border: 1px solid #e8b545;
+  }
+}
+
+.nav__items:nth-child(6) {
+  cursor: default;
+  &:hover {
+    transform: translate(0, 0);
+    color: inherit;
   }
 }
 

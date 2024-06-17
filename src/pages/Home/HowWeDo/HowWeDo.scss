@@ -1,0 +1,80 @@
+.how__wedo {
+   font-family: Fira Sans, serif;
+   cursor: default;
+  position: relative;
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 1.8rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../../images/line.png');
+    background-position: left;
+    left: -370px;
+    top: 30px;
+    rotate: 100deg;
+    width: 500px;
+    height: 300px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-image: url('../../../images/line.png');
+    background-position: left;
+    right: -325px;
+    top: 890px;
+    rotate: 215deg;
+    width: 500px;
+    height: 300px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+  }
+
+
+.how__wedo-description{
+font-weight: 600;
+margin-bottom: 50px;
+text-indent: 3rem;
+background: linear-gradient(135deg, #000000, #4f43f1);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.how__wedo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+
+}
+
+.how__wedo-items {
+  position: relative;
+  background: linear-gradient(135deg, #000000, #4f43f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.how__wedo-items span {
+  display: flex;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.how__wedo-proud {
+  margin-top: 50px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #000000, #4f43f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-indent: 3rem;
+  margin-bottom: 90px;
+}
+
+}

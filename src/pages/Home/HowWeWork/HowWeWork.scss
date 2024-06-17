@@ -1,0 +1,74 @@
+.home__about {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../../images/line.png');
+    background-position: left;
+    right: -225px;
+    top: 30px;
+    rotate: 225deg;
+    width: 500px;
+    height: 200px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+  }
+}
+
+.home__about-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-shadow: 7px 15px 20px rgba($color: #000000, $alpha: 0.6);
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 90px;
+  opacity: 0;
+transform: translateX(100%);
+transition: opacity 0.1s ease-out, transform 1s ease-out;
+visibility: hidden;
+}
+
+.home__about-box.animate3 {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  }
+
+.home__about-box p {
+  font-family: Fira Sans, serif;
+  cursor: default;
+  font-size: 2rem;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #000000, #4f43f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-indent: 3rem;
+}
+
+.every__steps {
+  position: relative;
+  display: flex;
+  padding: 40px;
+  margin-right: 60px;
+  align-items: center;
+
+  &-img {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.home__title {
+  text-align: center;
+  font-size: 3rem;
+  background: linear-gradient(180deg, #fa3fde, #4f43f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 40px;
+}

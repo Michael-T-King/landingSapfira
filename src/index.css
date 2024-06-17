@@ -39,6 +39,7 @@
 
 body {
   font-family: vezitsa, Arial;
+  overflow-x: hidden;
 }
 
 h1,
@@ -49,8 +50,6 @@ h5,
 h6,
 p,
 ul,
-ol,
-li,
 blockquote {
   list-style: none;
   margin: 0;

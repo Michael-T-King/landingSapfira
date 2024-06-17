@@ -34,7 +34,6 @@ function Footer() {
           
           <ul className="nav__list">
             <li className="nav__items">ГЛАВНАЯ</li>
-            <li className="nav__items">О НАС</li>
             <li className="nav__items">КОНТАКТЫ</li>
             <li className="nav__items">ДОСТАВКА</li>
             <li className="nav__items">ОСТАВИТЬ ЗАЯВКУ</li>

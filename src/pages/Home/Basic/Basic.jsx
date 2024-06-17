@@ -1,6 +1,12 @@
 import React from 'react'
 import './basic.scss'
 
+import BrasletPic from '../../../images/product/braslet.jpg'
+import Brelok from '../../../images/product/brelok.jpg'
+import Brosh from '../../../images/product/6.jpg'
+import Kolie from '../../../images/product/16.jpg'
+import magnet from '../../../images/product/mini.jpg'
+import Desc from '../../../images/discription2.jpg'
 
 
 function Basic() {
@@ -8,23 +14,319 @@ function Basic() {
     <section>
     <div className='container'>
 
-<p className="basic__about">Мы — мастерская, создающая украшения из полимерной глины. Каждое наше изделие ручной работы сделано с любовью и вниманием к деталям. Мы ценим индивидуальность и стремимся радовать вас качественными и красивыми украшениями.</p>
-
-<h2 className="basic__colections">Наши изделия</h2>
+<h2 className="home__title">Наши изделия</h2>
 
 <ul className="basic__list">
-  <li className="basic__items"><p>Браслеты</p> <div className="swiper">
-  
-</div></li>
-  <li className="basic__items">Брелоки</li>
-  <li className="basic__items">Броши</li>
-  <li className="basic__items">Колье</li>
-  <li className="basic__items">Магниты</li>
-  <li className="basic__items">Наборы</li>
-  <li className="basic__items">Подвески, Кулоны</li>
-  <li className="basic__items">Серьги</li>
-  <li className="basic__items">Сувениры</li>
-  <li className="basic__items">Разное</li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Браслеты</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={BrasletPic} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={BrasletPic} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble product__not-avaleble">нет в наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={BrasletPic} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={BrasletPic} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Брелоки</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={Brelok} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Brelok} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Brelok} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Brelok} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Броши</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={Brosh} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Brosh} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Brosh} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Brosh} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Колье</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={Kolie} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Kolie} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Kolie} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={Kolie} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Магниты</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={magnet} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Наборы</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={magnet} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Подвески,<br/> Кулоны</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={magnet} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Серьги</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={magnet} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Сувениры</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={magnet} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
+
+  <li className="basic__items">
+  <p className='basic__itens-text'>Разное</p>
+  <ul className="basic__items-products-list">
+    <li className="basic__items-product">
+      <img src={magnet} alt="" className="basic__items-products-img" />
+      <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+    <li className="basic__items-product">
+    <img src={magnet} alt="" className="basic__items-products-img" />
+    <p className="product__avaleble">В наличии</p>
+      <p className="basic__product-price">220 p</p>
+      <p className="basic__product-more">подробнее</p>
+    </li>
+  </ul>
+  <button className="btn__more">ЕЩЕ</button>
+  </li>
 </ul>
 
 
