@@ -1,0 +1,44 @@
+.basic__about {
+  position: relative;
+  width: 800px;
+  height: 100%;
+  font-family: Fira Sans, serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-indent: 3rem;
+  cursor: default;
+  margin-bottom: 100px;
+}
+
+h2.basic__colections {
+  text-align: center;
+  font-size: 3rem;
+  background: linear-gradient(180deg, #fa3fde, #4f43f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;
+  color: transparent; 
+}
+
+.basic__items {
+  display: flex; 
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basic__items p {
+width: 30%;
+text-align: center;
+}
+
+.basic__list {
+  position: relative;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+}
