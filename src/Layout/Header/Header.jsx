@@ -1,4 +1,5 @@
-import React, {useState, useEffect, Link } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import Logo from '../../images/sapfira-light.png';
 import LogoViolet from '../../images/sapfira-violet.png';
@@ -60,7 +61,7 @@ const Header = () => {
             <li className="nav__items">КОНТАКТЫ</li>
             <li className="nav__items">ДОСТАВКА</li>
             <li className="nav__items">ОСТАВИТЬ ЗАЯВКУ</li>
-            <li className="nav__items">ВОЙТИ</li>
+            <li><Link to='/Login'className="nav__items">ВОЙТИ</Link></li>
             <li className="nav__items">имя</li>
           </ul>
         </div>
