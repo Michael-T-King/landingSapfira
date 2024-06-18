@@ -1,8 +1,30 @@
 {
-  "users": [],
-  "products":[
+  "users": [
     {
-      "id":"1"
+      "email": "mail@mail.ru",
+      "password": "$2a$10$/DZx3MCcaGUfSdgKb0mlZulDKYvAx/uoBcLgdDYdB61FvFzwPN11C",
+      "userName": "mail",
+      "phone": "+9965551234567",
+      "id": 1
+    },
+    {
+      "email": "admin@mail.ru",
+      "password": "$2a$10$215BqsOlhZ9nNw5vrfOIVORNod4J7VLyFWj1yLQOVRZMQZoF5GX.q",
+      "userName": "admin",
+      "phone": "132456789",
+      "id": 2
+    },
+    {
+      "email": "qwer@mail.ru",
+      "password": "$2a$10$colb7TEfU1oGOC8tP8nsnepvByxjsS09PxyTLSFAOONjXgLpgD5BK",
+      "userName": "name",
+      "phone": "кнопочный",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": "1"
     }
   ]
 }

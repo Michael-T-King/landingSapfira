@@ -45,6 +45,17 @@
   }
 }
 
+.nav__items Link {
+  cursor: pointer;
+  transition: transform 0.2s ;
+  &:hover {
+    transform: translate(-2px, 3px);
+  }
+  &:active {
+    color: #ced1d3;
+  }
+}
+
 .nav__items:nth-child(4) {
   color: #efa244;
   border: 1px solid #efa244;
@@ -59,9 +70,11 @@
 
 .nav__items:nth-child(6) {
   cursor: default;
+  font-family: Fira Sans, serif;
   &:hover {
     transform: translate(0, 0);
     color: inherit;
+
   }
 }
 
@@ -135,5 +148,21 @@ opacity: 0;
 .header__titles.animate {
   opacity: 1;
   transform: translateX(0);
+}
+
+.admin__btn {
+  margin-top: 30px;
+  font-family: Fira Sans, serif;
+  font-size: 1.3rem;
+  padding: 5px 20px;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  width: fit-content;
+  cursor: pointer;
+  &:hover {
+    color: #ffdd00;
+    border: 1px solid #ffdd00;
+
+  }
 }
 }

@@ -18,17 +18,21 @@ function HowWeWork() {
         });
       },
       {
-        threshold: 0,
+        threshold: 0.1,
       }
     );
 
-    return () => {
     if (welcomeContainer.current) {
       observer.observe(welcomeContainer.current);
     }
 
+    return () => {
+      if (welcomeContainer.current) {
+        observer.unobserve(welcomeContainer.current);
+      }
     };
   }, []);
+
   return (
     <section>
       <div className="container">

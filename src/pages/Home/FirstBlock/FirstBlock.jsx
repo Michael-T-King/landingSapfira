@@ -17,12 +17,17 @@ function FirstBlock() {
         });
       },
       {
-        threshold: 0,
+        threshold: 0.1,
       }
     );
+
+    if (welcomeContainer.current) {
+      observer.observe(welcomeContainer.current);
+    }
+
     return () => {
       if (welcomeContainer.current) {
-        observer.observe(welcomeContainer.current);
+        observer.unobserve(welcomeContainer.current);
       }
     };
   }, []);

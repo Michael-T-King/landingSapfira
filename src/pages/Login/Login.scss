@@ -108,7 +108,7 @@ transition: 0.3s;
     color: #4f43f1;
     border: 1px solid #fa3fde;
     border-radius: 0.3rem;
-    background-color: transparent;
+    background-color: #fff;
     margin-bottom: 20px;
     transition: 0.3s;
 
@@ -128,7 +128,7 @@ transition: 0.3s;
     display: flex;
     gap: 40px;
     justify-content: center;
-    margin: 40px 0 50px 0;
+    margin: 40px 0 20px 0;
   }
 
   &__with-img {
@@ -157,6 +157,15 @@ transition: 0.3s;
       transform: translate(-2px, 3px);
     }
       
+  }
+
+  .user {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: Fira Sans, serif;
+    margin-top: 30px;
+    color: #fff;
   }
 
 }
