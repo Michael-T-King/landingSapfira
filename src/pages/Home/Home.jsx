@@ -5,6 +5,7 @@ import './Home.scss'
 import HowWeWork from './HowWeWork/HowWeWork'
 import HowWeDo from './HowWeDo/HowWeDo'
 import HomeOrder from './HomeOrder/HomeOrder'
+import News from './News/News'
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
 <HowWeWork/>
 <HowWeDo/>
 <HomeOrder/>
+<News/>
     </div>
   )
 }

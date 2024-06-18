@@ -51,7 +51,7 @@ function Registration() {
         <form action="" className="login__form">
 
           <input onChange={(e) => {setEmail(e.target.value);setPasswordMatch(true); setNotAllMatch(true);}}
-            type="email" placeholder='Введите email' className={`login__input ${!passwordMatch && 'error'}`} required/>
+            type="email" placeholder='Введите email' className={`login__input ${!notAllMatch && 'error'}`} required/>
           
           <input onChange={(e) => { setPassword(e.target.value); setNotAllMatch(true);
               if (e.target.value === confirmPassword) {
@@ -69,9 +69,9 @@ function Registration() {
               }
             }} type="password" placeholder='Повторите пароль' className={`login__input ${!passwordMatch && 'error'}`} required/>  
 
-          <input onChange={(e) => { setUserName(e.target.value); setNotAllMatch(true);}} type="text" placeholder='Введите имя пользователя' className={`login__input `} required/>  
+          <input onChange={(e) => { setUserName(e.target.value); setNotAllMatch(true);}} type="text" placeholder='Введите имя пользователя' className={`login__input ${!notAllMatch && 'error'}`} required/>  
 
-          <input onChange={(e) => { setPhone(e.target.value); setNotAllMatch(true);}} type="tel" placeholder='Введите номер телефона' className={`login__input `} required/>
+          <input onChange={(e) => { setPhone(e.target.value); setNotAllMatch(true);}} type="tel" placeholder='Введите номер телефона' className={`login__input ${!notAllMatch && 'error'}`} required/>
 
           {!notAllMatch&& <p className="error-message">Заполните все поля</p>}
           {!passwordMatch && <p className="error-message">Пароли не совпадают</p>}

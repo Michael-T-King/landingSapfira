@@ -102,15 +102,12 @@ const Header = () => {
             <img src={BlueGuy} alt="Logo" />
           </div>
         </div>
-        <div className='admin__btn' style={{ display: user?.user.userName === 'admin' ? 'block' : 'none' }}>
+          <div className='admin__btn' style={{ display: user?.user.userName === 'admin' ? 'block' : 'none' }}>
   {user?.user.userName === 'admin' &&
     <div><Link to='/AdminPanel'>панель Администратора</Link></div>
   }
-</div>
-
-           
+          </div>
       </div>
-     
     </div>
   );
 };

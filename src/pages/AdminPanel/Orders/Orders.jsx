@@ -3,7 +3,7 @@ import './Orders.scss'
 
 function Orders() {
   return (
-    <div>Orders</div>
+    <div>Заказы</div>
   )
 }
 
