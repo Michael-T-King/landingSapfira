@@ -1,46 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {useSelector} from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import './Login.scss';
 import axios from 'axios';
-
-import Google from '../../images/google.png'
-import Yandex from '../../images/Yandex.png'
+import { loginUser } from '../../redux/Reducer/users';
+import Google from '../../images/google.png';
+import Yandex from '../../images/Yandex.png';
 
 function Login() {
-
-  const {data} = useSelector((state)=>state.products)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [user,setUser] = useState({})
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-        setUser(JSON.parse(storedUser));
+      setUser(JSON.parse(storedUser));
     }
-}, []);
+  }, []);
 
   const login = (e) => {
     e.preventDefault();
-    const loginUser = {
+    const loginUserDetails = {
       email,
       password
     };
 
-    axios.post('http://localhost:8080/Login', loginUser)
+    axios.post('http://localhost:8080/Login', loginUserDetails)
       .then(({ data }) => {
-        setUser(data);
         if (data) {
+          dispatch(loginUser(data));
           localStorage.setItem('user', JSON.stringify(data));
           navigate('/');
         } else {
           setErrorMessage('Неверный логин или пароль');
         }
       })
-      .catch(error => {
+      .catch(() => {
         setErrorMessage('Неверный логин или пароль');
       });
   };
@@ -63,7 +62,7 @@ function Login() {
           <img src={Yandex} alt="Yandex" className="login__with-img" />
         </div>
         <Link to='/Registration' className='registration__link'>Зарегистрироваться</Link>
-        <p className='user'>{user.user?.userName}</p>
+        <p className='user'>{user.user?.name}</p>
       </div>
     </section>
   );

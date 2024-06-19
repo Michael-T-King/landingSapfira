@@ -6,6 +6,8 @@ import Login from './pages/Login/Login';
 import Registration from './pages/Registration/Registration';
 import AdminPanel from './pages/AdminPanel/ApminPanel';
 import Cart from './pages/Cart/Cart';
+import SuccessOrder from './pages/Cart/SuccessOrder/SuccessOrder';
+import OneProduct from './pages/OneProduct/OneProduct'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
@@ -19,10 +21,12 @@ function App() {
             <Route path={'/'} element={<Layout />}>
               <Route path={''} element={<Home />} />
               <Route path={'Cart'} element={<Cart />} />
+              <Route path="/oneproduct/:id" element={<OneProduct />} />
             </Route>
             <Route path={'Login'} element={<Login />} />
             <Route path={'Registration'} element={<Registration />} />
             <Route path={'AdminPanel'} element={<AdminPanel />} />
+            <Route path={'Success'} element={<SuccessOrder/>} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

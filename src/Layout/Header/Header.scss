@@ -3,13 +3,13 @@
   display: flex;
   background-image: url('../../images/header.png');
   background-position: center;
+  background-position-y: calc(100% - 1rem);
   background-size: cover;
   background-repeat: no-repeat;
   width: 110%;
   height: 56rem;
   justify-content: space-between;
   color: #fff;
-  margin-bottom: 5rem;
 
   .nav {
     position: relative;

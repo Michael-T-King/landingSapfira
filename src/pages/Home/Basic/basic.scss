@@ -105,9 +105,6 @@ flex-wrap: wrap;
 }
 
 .basic__items-product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   width: 250px;
   height: 100%;
@@ -127,6 +124,13 @@ background-color: #fff;
 &:active {
   opacity: 0.4;
 }
+}
+
+.basic__items-product a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .basic__items-products-img {
@@ -169,4 +173,5 @@ background-color: #fff;
   color: #7268f4;
   font-size: 1.5rem;
   margin-bottom: 20px;
+  font-family: Fira Sans, serif;
 }

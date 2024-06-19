@@ -1,29 +1,58 @@
 {
   "users": [
-    
     {
       "email": "admin@mail.ru",
-      "password": "$2a$10$215BqsOlhZ9nNw5vrfOIVORNod4J7VLyFWj1yLQOVRZMQZoF5GX.q",
+      "password": "$2a$10$8v/0FWIJgyA2PNZNdKoTROTayw2sy/nea3yvToF3JzCZtbl/Nz2vm",
       "userName": "admin",
-      "phone": "132456789",
+      "phone": "123456789",
+      "id": 1
+    },
+    {
+      "email": "mail@mail.ru",
+      "password": "$2a$10$NHNoNMi5usAnfLlqbUrn1OeL.loSHLma5WCQc2ujLKR1gpvt00aNW",
+      "userName": "mail",
+      "phone": "123456789",
       "id": 2
     },
     {
       "email": "michaeltitarenko@gmail.com",
-      "password": "$2a$10$LJEWTidsDKuqx3w2jv1L8e8z2aEnFTwxDpAzOlrJof7cuS/i2Jl.K",
+      "password": "$2a$10$SDOaJEI0UuDZpD18vavcg.tsNlhQ/M5x6Sg7ZU4/F/NxvZ7NBSQVO",
       "userName": "Michael",
       "phone": "+996551465444",
-      "id": 4
+      "id": 3
     }
   ],
   "products": [
     {
-      "id": "1"
+      "id": "1",
+      "name": "супер браслет",
+      "price": "1250 p",
+      "description": "",
+      "image": "/assets/product/braslet.jpg",
+      "category":"braslet",
+      "avaleble": "true"
+      
+    },
+    {
+      "id": "2",
+      "name": "Вообще не браслет",
+      "price": "793 p",
+      "description": "",
+      "image": "/assets/product/11.jpg",
+      "category":"braslet",
+      "avaleble": "false"
+      
     }
   ],
   "form": [
     {
-      "id": "1"
+      "name": "Michael T",
+      "email": "michaeltitarenko@gmail.com",
+      "address": "Baetova St. House 2",
+      "phone": "+996551465444",
+      "description": "i need all of you have",
+      "product": "Продукт",
+      "id": 1
     }
   ]
 }
