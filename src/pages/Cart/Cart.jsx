@@ -11,6 +11,8 @@ function Cart() {
     }
   }, []);
 
+  
+
   return (
     <section className='cart'>
       <div className="container">
@@ -49,7 +51,7 @@ function Cart() {
 </div>
           <div className='agree__box'>
             <input type="checkbox" id="agree" name="agree" required />
-            <label for="agree" className='agree__lable'><p>Согласиться с</p> <a href='/' className="cart__rules">Правила оферты</a></label>
+            <label for="agree" className='agree__lable'><p>Согласиться с</p> <a href='/' className="cart__rules">Правилами оферты</a></label>
           </div>
           
           

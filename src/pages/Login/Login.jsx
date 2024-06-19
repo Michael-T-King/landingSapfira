@@ -49,7 +49,7 @@ function Login() {
     <section className='login'>
       <div className="login__container">
         <h1 className="login__title">Войти</h1>
-        <Link to='/' className="login__back">НАЗАД</Link>
+        <Link to='/' className="login__back">На Главную</Link>
         <form onSubmit={login} className="login__form">
           <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Введите email' className="login__input" required />
           <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Введите пароль' className="login__input" required />

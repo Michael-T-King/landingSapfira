@@ -26,6 +26,12 @@
   -webkit-text-fill-color: #de3939;
   margin: 0 30px;
   white-space: nowrap; 
+
+  &:hover {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #4f43f1;
+
+  }
 }
 
 .home__do-order::after {
@@ -35,4 +41,8 @@
   right: 0;
   bottom: -3px;
   border-bottom: 2px solid #de3939; 
+}
+
+.home__do-order:hover::after {
+  border-bottom: 2px solid #4f43f1;
 }

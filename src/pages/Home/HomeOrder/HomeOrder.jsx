@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link, } from 'react-router-dom';
+
 import './HomeOrder.scss'
 
 function HomeOrder() {
@@ -10,7 +12,7 @@ function HomeOrder() {
 
       <div className='home__order-box'>
         <p className='home__order-text'>Хотите купить наши украшения?
-         <a href='/' className='home__do-order'>Заполните форму заказа на сайте,</a>
+         <Link to='/Cart' className='home__do-order'>Заполните форму заказа на сайте,</Link>
          <br/> укажите нужные параметры, и мы свяжемся с вами для подтверждения.</p>
       </div>
       </div>

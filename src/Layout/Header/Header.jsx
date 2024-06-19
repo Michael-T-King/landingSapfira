@@ -24,7 +24,7 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    navigate('/');
+    navigate('/Login');
   };
 
 
@@ -77,19 +77,13 @@ const Header = () => {
     <div className="header__box">
       <div className='container'>
         <div className="nav">
-        <Link to ='/'><img 
-            src={logoSrc} 
-            alt="Logo" 
-            className="nav__img" 
-            onMouseOver={handleMouseOver} 
-            onMouseOut={handleMouseOut} 
-          /></Link>
+        <Link to ='/'><img src={logoSrc} alt="Logo" className="nav__img" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} /></Link>
           <ul className="nav__list">
             <li className="nav__items"><Link to ='/'>ГЛАВНАЯ</Link></li>
             <li className="nav__items">КОНТАКТЫ</li>
             <li className="nav__items">ДОСТАВКА</li>
             <li className="nav__items" ><Link to ='/Cart'>ОСТАВИТЬ ЗАЯВКУ</Link></li>
-            <li onClick={user? logout : navigate('/login')}><Link to='/login' className={isSelected('/login')}>{user ? 'ВЫЙТИ' : 'ВОЙТИ'}</Link></li>
+            <li onClick={logout}><Link to='/login' className={isSelected('/login')}>{user ? 'ВЫЙТИ' : 'ВОЙТИ'}</Link></li>
             <li className="nav__items">{user?.user.userName}</li>
           </ul>
         </div>
@@ -104,9 +98,7 @@ const Header = () => {
           </div>
         </div>
           <div className='admin__btn' style={{ display: user?.user.userName === 'admin' ? 'block' : 'none' }}>
-  {user?.user.userName === 'admin' &&
-    <div><Link to='/AdminPanel'>панель Администратора</Link></div>
-  }
+  {user?.user.userName === 'admin' && <div><Link to='/AdminPanel'>панель Администратора</Link></div>}
           </div>
       </div>
     </div>
