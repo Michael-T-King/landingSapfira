@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.scss';
 import Logo from '../../images/sapfira-light.png';
 import LogoViolet from '../../images/sapfira-violet.png';
@@ -26,17 +27,17 @@ function Footer() {
       <div className='container'>
         <div className='footer__box'>
           <div className='footer__left-box'>
-            <img src={logoSrc} alt="Logo" className="footer__logo" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
+          <Link to ='/'><img src={logoSrc} alt="Logo" className="footer__logo" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} /></Link>
             <a href="tg://resolve?domain=Lord_Michael_5" className="footer__dev">
               Developer and creator: Michael-T-King
             </a>
           </div>
           
           <ul className="nav__list">
-            <li className="nav__items">ГЛАВНАЯ</li>
+            <li className="nav__items"><Link to ='/'>ГЛАВНАЯ</Link></li>
             <li className="nav__items">КОНТАКТЫ</li>
             <li className="nav__items">ДОСТАВКА</li>
-            <li className="nav__items">ОСТАВИТЬ ЗАЯВКУ</li>
+            <li className="nav__items"><Link to ='/Cart'>ОСТАВИТЬ ЗАЯВКУ</Link></li>
           </ul>
 
           <div className="footer__right-box">

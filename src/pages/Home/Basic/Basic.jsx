@@ -25,6 +25,7 @@ function Basic() {
       <img src={BrasletPic} alt="" className="basic__items-products-img" />
       <p className="product__avaleble">В наличии</p>
       <p className="basic__product-price">220 p</p>
+      <p className="basic__product-quantity">1 шт.</p>
       <p className="basic__product-more">подробнее</p>
     </li>
     <li className="basic__items-product">

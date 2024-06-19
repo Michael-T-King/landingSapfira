@@ -9,6 +9,7 @@ const Header = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
   useEffect(() => {
@@ -76,18 +77,18 @@ const Header = () => {
     <div className="header__box">
       <div className='container'>
         <div className="nav">
-          <img 
+        <Link to ='/'><img 
             src={logoSrc} 
             alt="Logo" 
             className="nav__img" 
             onMouseOver={handleMouseOver} 
             onMouseOut={handleMouseOut} 
-          />
+          /></Link>
           <ul className="nav__list">
             <li className="nav__items"><Link to ='/'>ГЛАВНАЯ</Link></li>
             <li className="nav__items">КОНТАКТЫ</li>
             <li className="nav__items">ДОСТАВКА</li>
-            <li className="nav__items">ОСТАВИТЬ ЗАЯВКУ</li>
+            <li className="nav__items" ><Link to ='/Cart'>ОСТАВИТЬ ЗАЯВКУ</Link></li>
             <li onClick={user? logout : navigate('/login')}><Link to='/login' className={isSelected('/login')}>{user ? 'ВЫЙТИ' : 'ВОЙТИ'}</Link></li>
             <li className="nav__items">{user?.user.userName}</li>
           </ul>
