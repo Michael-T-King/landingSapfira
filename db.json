@@ -20,6 +20,13 @@
       "userName": "Michael",
       "phone": "+996551465444",
       "id": 3
+    },
+    {
+      "email": "mail@yahoo.com",
+      "password": "$2a$10$YnpCsKC.b10CftxzH191Y.e2H8ItRmyPUfhL8CugKpgQw8YUN7N9i",
+      "userName": "Michael",
+      "phone": "+996551465444",
+      "id": 4
     }
   ],
   "products": [
@@ -27,32 +34,58 @@
       "id": "1",
       "name": "супер браслет",
       "price": "1250 p",
-      "description": "",
+      "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
       "image": "/assets/product/braslet.jpg",
-      "category":"braslet",
+      "category": "braslet",
       "avaleble": "true"
-      
     },
     {
       "id": "2",
       "name": "Вообще не браслет",
       "price": "793 p",
-      "description": "",
+      "description": "jfdgnsjfdbngdjlfgbndjgnldfnghljdfngjlkfdngljdsfngbljdfngljdfnghljsdfngbldfjngbldjsnfgljdsfgh",
       "image": "/assets/product/11.jpg",
-      "category":"braslet",
+      "category": "braslet",
       "avaleble": "false"
-      
     }
   ],
   "form": [
     {
-      "name": "Michael T",
-      "email": "michaeltitarenko@gmail.com",
-      "address": "Baetova St. House 2",
-      "phone": "+996551465444",
-      "description": "i need all of you have",
-      "product": "Продукт",
+      "name": "Lohn",
+      "email": "loh@mail.ru",
+      "address": "jghfu",
+      "phone": "15+4",
+      "description": "hjrhj rujgfh ruruv ruyhgr yfurh furhgfvu erughfue",
+      "products": [],
       "id": 1
+    },
+    {
+      "name": "lindsey",
+      "email": "loh@mail.ru",
+      "address": "jghfu",
+      "phone": "15+4",
+      "description": "hjrhj rujgfh ruruv ruyhgr yfurh furhgfvu erughfue",
+      "products": [
+        {
+          "id": "1",
+          "name": "супер браслет",
+          "price": "1250 p",
+          "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": "true"
+        },
+        {
+          "id": "2",
+          "name": "Вообще не браслет",
+          "price": "793 p",
+          "description": "jfdgnsjfdbngdjlfgbndjgnldfnghljdfngjlkfdngljdsfngbljdfngljdfnghljsdfngbldfjngbldjsnfgljdsfgh",
+          "image": "/assets/product/11.jpg",
+          "category": "braslet",
+          "avaleble": "false"
+        }
+      ],
+      "id": 2
     }
   ]
 }

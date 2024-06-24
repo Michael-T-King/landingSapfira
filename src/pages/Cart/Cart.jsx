@@ -1,25 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Cart.scss';
-import Img from '../../images/magnet.jpg';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/Reducer/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartDetails } from '../../redux/Reducer/cartSlice';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const toTitle = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-  const [description, setDescription] = useState('');
-  const [product, setProduct] = useState('');
-  const [error, setError] = useState('');
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartDetails = useSelector((state) => state.cart.cart);
 
+  const [name, setName] = useState(cartDetails.name);
+  const [email, setEmail] = useState(cartDetails.email);
+  const [address, setAddress] = useState(cartDetails.address);
+  const [phone, setPhone] = useState(cartDetails.phone);
+  const [description, setDescription] = useState(cartDetails.description);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (toTitle.current) {
@@ -36,17 +35,22 @@ function Cart() {
       address,
       phone,
       description,
-      product 
+      products: cartItems
     };
 
     try {
       const { data } = await axios.post('http://localhost:8080/form', formData);
-      dispatch(addToCart(data));
-      if(data) navigate('/Success');
-
+      if (data) {
+        navigate('/Success');
+      }
     } catch (error) {
       setError('Ошибка отправки формы');
     }
+  };
+
+  const FieldChange = (sett, field) => (e) => {
+    sett(e.target.value);
+    dispatch(setCartDetails({ [field]: e.target.value }));
   };
 
   return (
@@ -55,53 +59,45 @@ function Cart() {
         <div className="cart__box" ref={toTitle}>
           <h1 className="home__title">Форма заявки</h1>
           <form onSubmit={handleSubmit} className="cart__form">
-            <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="cart__input" placeholder='Имя, Фамилия' required/>
+            <input onChange={FieldChange(setName, 'name')} value={name} type="text" className="cart__input" placeholder='Имя, Фамилия' required/>
             <input
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={FieldChange(setEmail, 'email')}
               value={email}
               type="email"
               className="cart__input"
               placeholder='Email'
-              required
-            />
+              required/>
             <input
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={FieldChange(setPhone, 'phone')}
               value={phone}
               type="tel"
               className="cart__input"
               placeholder='Номер телефона'
-              required
-            />
+              required/>
             <input
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={FieldChange(setAddress, 'address')}
               value={address}
               type="text"
               className="cart__input"
               placeholder='Адрес'
-              required
-            />
+              required/>
             <textarea
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={FieldChange(setDescription, 'description')}
               value={description}
               id="cart__textarea"
               placeholder='Описание заказа'
-              required
-            />
+              required/>
             <div className="cart__product-box">
-              <div className="cart__items-product">
-                <img src={Img} alt="" className="cart__items-products-img" />
-                <p className="product__avaleble cart__size">В наличии</p>
-                <p className="basic__product-price">220 р</p>
-                <p className="basic__product-quantity">1 шт.</p>
-                <p  className="basic__product-more" >Название</p>
-              </div>
-              <div className="cart__items-product">
-                <img src={Img} alt="" className="cart__items-products-img" />
-                <p className="product__avaleble cart__size">В наличии</p>
-                <p className="basic__product-price">220 р</p>
-                <p className="basic__product-quantity">1 шт.</p>
-                <p className="basic__product-more" >Назва</p>
-              </div>
+            
+              {cartItems.map((item, index) => (
+                <div className="cart__items-product" key={index}>
+                  <img src={item.image} alt="" className="cart__items-products-img" />
+                  <p className="product__available cart__size">В наличии</p>
+                  <p className="basic__product-price">{item.price} </p>
+                  <p className="basic__product-quantity">1 шт.</p>
+                  <p className="basic__product-more">{item.name}</p>
+                </div>
+              ))}
             </div>
             <div className="cart__price-box">
               <h3 className="cart__price-text">Общая цена за выбранные товары:</h3>
@@ -109,7 +105,7 @@ function Cart() {
             </div>
             <div className='agree__box'>
               <input type="checkbox" id="agree" name="agree" required />
-              <label htmlFor="agree" className='agree__lable'>
+              <label htmlFor="agree" className='agree__label'>
                 <p>Согласиться с</p> <a href='/' className="cart__rules">Правилами оферты</a>
               </label>
             </div>

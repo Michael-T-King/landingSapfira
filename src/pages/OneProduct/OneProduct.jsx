@@ -1,44 +1,63 @@
-import React, { useEffect } from 'react';
+// OneProduct.js
+import React, { useEffect, useRef } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch, } from 'react-redux';
+import { useLocation, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentProduct } from '../../redux/Reducer/products';
-
+import { addToCart } from '../../redux/Reducer/cartSlice';
 import './oneProduct.scss';
 
 const OneProduct = () => {
-  let location = useLocation()
-  let id =  location.pathname.split('/').at(-1)
-  const dispatch = useDispatch();
-  const { currentProduct } = useSelector((state) => state.products);
-  const Product = currentProduct;
-  useEffect(() => {
-    const getOneProduct = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/products/${id}`);
-        dispatch(setCurrentProduct(response.data));
-      } catch (error) {
-        console.error('Ошибка при загрузке продукта:', error);
-      }
+    let location = useLocation();
+    let id = location.pathname.split('/').at(-1);
+    const dispatch = useDispatch();
+    const { currentProduct } = useSelector((state) => state.products);
+    const Product = currentProduct;
+    const toTitle = useRef(null);
+
+    useEffect(() => {
+        const getOneProduct = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/products/${id}`);
+                dispatch(setCurrentProduct(response.data));
+            } catch (error) {
+                console.error('Ошибка при загрузке продукта:', error);
+            }
+        };
+        getOneProduct();
+    }, [dispatch, id]);
+
+    useEffect(() => {
+        if (toTitle.current) {
+            toTitle.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+    if (!Product) {
+        return <p className='one__product'>Загрузка...</p>;
+    }
+
+    const AddToCart = () => {
+        dispatch(addToCart(Product));
     };
-    getOneProduct();
-  }, [dispatch, id]);
 
-  if (!Product) {
-    return <p className='one__product'>Загрузка...</p>;
-  }
-
-  return (
-    <section>
-      <div className="container">
-        <div>
-          <h2 className='one__product'>{Product.name}</h2>
-          <h2 className='one__product'>{Product.category}</h2>
-          <img src={Product.image} alt=""/>
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section>
+            <div className="container">
+                <div className='one__card-box' ref={toTitle}>
+                    <img src={Product.image} alt="product img" className='product__img' />
+                    <div className="one__card-description-box">
+                        <h1 className="one__card-title">{Product.name}</h1>
+                        <p className="one__card-description">{Product.description}</p>
+                        <button className="one__card-btn" onClick={AddToCart}>
+                            Добавить к оформлению
+                        </button>
+                    </div>
+                </div>
+                <Link to='/Cart'><button className="one__card-goto-btn">Перейти к оформлению</button></Link>
+            </div>
+        </section>
+    );
 };
 
 export default OneProduct;
