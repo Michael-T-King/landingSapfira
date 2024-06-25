@@ -11,19 +11,16 @@ import EditProduct from './EditProduct/EditProduct';
 import AddNews from './AddNews/AddNews';
 
 function AdminPanel() {
-  const SelectedItem = (event) => {
-    const addClass = document.querySelectorAll('.admin__aside-items');
-    addClass.forEach((el) => {
-      el.classList.remove('checked__items');
-    });
-    event.currentTarget.classList.add('checked__items');
-  };
-
-  const [selectedItem, setSelectedItem] = useState('Заказы'); 
+  const [selectedItem, setSelectedItem] = useState(() => {
+    const storedItem = localStorage.getItem('selectedItem');
+    return storedItem ? JSON.parse(storedItem) : 'Заказы';
+  }); 
 
   const ItemClick = (itemName) => {
     setSelectedItem(itemName);
+    localStorage.setItem('selectedItem', JSON.stringify(itemName));
   }
+
   const ChangeContext = () => {
     switch (selectedItem) {
       case 'Заказы':

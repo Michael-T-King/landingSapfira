@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCartDetails, markOrderAsDone, removeFromAdmin } from '../../../redux/Reducer/cartSlice';
+import { markOrderAsDone, removeFromAdmin } from '../../../redux/Reducer/cartSlice';
 import './Orders.scss';
 
 function Orders() {
@@ -10,7 +10,6 @@ function Orders() {
   const [error, setError] = useState('');
 
   const dispatch = useDispatch();
-  const cartDetails = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
     const fetchOrders = async () => {

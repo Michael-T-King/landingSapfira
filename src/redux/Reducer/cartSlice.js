@@ -8,7 +8,7 @@ const initialState = {
     phone: '',
     description: '',
     article: '',
-    done: '',
+    done: 'false',
     products: []
   },
   cartItems: []

@@ -11,7 +11,7 @@ function HomeOrder() {
       <h1 className="home__title home__title-margin">Заказать:</h1>
 
       <div className='home__order-box'>
-        <p className='home__order-text'>Хотите купить наши украшения?
+        <p className='home__order-text'>Хотите купить наши украшения или заказать под себя со своим дизайном или идеями?
          <Link to='/Cart' className='home__do-order'>Заполните форму заказа на сайте,</Link>
          <br/> укажите нужные параметры, и мы свяжемся с вами для подтверждения.</p>
       </div>
