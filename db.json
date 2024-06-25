@@ -27,6 +27,13 @@
       "userName": "Michael",
       "phone": "+996551465444",
       "id": 4
+    },
+    {
+      "email": "michael@mail.ru",
+      "password": "$2a$10$rwMio/1ukfsCmzoP1F7/4OY30c03w8CyNza5fqlHPDv/IMWLvvzbG",
+      "userName": "Michael",
+      "phone": "+996551465444",
+      "id": 5
     }
   ],
   "products": [
@@ -55,11 +62,22 @@
       "name": "new braslet",
       "price": "300",
       "description": "bjhg giig highg ghihy",
-      "avaleble": "true",
+      "avaleble": "false",
       "article": "00303",
       "done": false,
       "image": "/assets/product/about us.jpg",
       "id": "GqU-fA0"
+    },
+    {
+      "category": "braslet",
+      "name": "test",
+      "price": "test",
+      "description": "test",
+      "avaleble": "true",
+      "article": "test",
+      "done": false,
+      "image": "/assets/product/google.png",
+      "id": "1NEe4p4"
     }
   ],
   "form": [

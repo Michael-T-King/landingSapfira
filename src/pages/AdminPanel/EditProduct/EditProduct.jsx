@@ -51,6 +51,8 @@ function EditProduct() {
     }
   };
 
+  
+
   return (
     <section className='edit__product'>
       <form onSubmit={GetArticle} className="find__product">

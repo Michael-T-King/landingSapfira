@@ -12,6 +12,7 @@ function AddProduct() {
   const [description, setDescription] = useState('');
   const [avaleble, setAvailable] = useState(false);
   const [article, setArticle] = useState('');
+  const [imagePreviw, setImagePreview] = useState('');
 
   const dispatch = useDispatch();
 
@@ -38,6 +39,15 @@ function AddProduct() {
   const handleImageChange = (e) => {
     const fileName = e.target.files[0].name;
     setImage(`/assets/product/${fileName}`);
+
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -61,6 +71,7 @@ function AddProduct() {
         <input value={article} onChange={(e) => setArticle(e.target.value)} type="text" className="product__input" placeholder='Артикул' required/>
         <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="product__textarea" placeholder='Описание товара' required></textarea>
         <input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className='add__image' required />
+        {image && <img src={imagePreviw} alt="Preview" className='preview__img' />}
         <div className='checkbox__box'>
           <input checked={avaleble} onChange={(e) => setAvailable(e.target.checked? "true": "false")} type="checkbox" id='product__checkbox' className="product__checkbox" required/>
           <label htmlFor="product__checkbox">в наличии</label>
