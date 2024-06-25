@@ -51,14 +51,15 @@
       "article": "000002"
     },
     {
-      "category": "any",
-      "name": "еуые",
-      "price": "ен3кен",
-      "description": "ивмаоцумаорумиаор",
+      "category": "braslet",
+      "name": "new braslet",
+      "price": "300",
+      "description": "bjhg giig highg ghihy",
       "avaleble": "true",
-      "article": "рмвсвсо",
-      "done": "false",
-      "id": "lJlfCMi"
+      "article": "00303",
+      "done": false,
+      "image": "/assets/product/about us.jpg",
+      "id": "GqU-fA0"
     }
   ],
   "form": [
@@ -102,6 +103,26 @@
       "products": [],
       "id": 3,
       "done": true
+    },
+    {
+      "name": "admin",
+      "email": "admin@mail.ru",
+      "address": "Дом 59, КВ 66",
+      "phone": "+777 777 77 77",
+      "description": "ergerg ergetrgt etrgygetr getrg e5gye nr5y er5ty34 5ty 354t 354t 354ty 354t 35454ty 354ty 345 t",
+      "products": [
+        {
+          "id": "1",
+          "name": "какой-то браслет",
+          "price": "1250 p",
+          "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": "true",
+          "article": "000001"
+        }
+      ],
+      "id": 4
     }
   ]
 }

@@ -115,6 +115,9 @@ transition: 0.3s;
     &:hover {
       box-shadow: 3px 7px 15px rgba(#000000, 0.6);
     }
+    &:active {
+      opacity: 0.5;
+    }
   }
 
   &__with {
