@@ -185,4 +185,34 @@ cursor: pointer;
     border: 1px solid #f882e6;
   }
 }
+
+.cart__product-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basic__product-delete-btn {
+  width: 2rem;
+  height: 2rem;
+  background-image: url('../../images/delete.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  margin: 10px;
+  cursor: pointer;
+  z-index: 99;
+  transition: width 0.3s, height 0.3s, opacity, 0.3s;
+
+  &:hover {
+width: 2.3rem;
+height: 2.3rem;
+  }
+  &:active {
+    opacity: 0.2;
+  }
+}
 }

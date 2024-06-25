@@ -32,12 +32,13 @@
   "products": [
     {
       "id": "1",
-      "name": "супер браслет",
+      "name": "какой-то браслет",
       "price": "1250 p",
       "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
       "image": "/assets/product/braslet.jpg",
       "category": "braslet",
-      "avaleble": "true"
+      "avaleble": "true",
+      "article": "000001"
     },
     {
       "id": "2",
@@ -46,35 +47,18 @@
       "description": "jfdgnsjfdbngdjlfgbndjgnldfnghljdfngjlkfdngljdsfngbljdfngljdfnghljsdfngbldfjngbldjsnfgljdsfgh",
       "image": "/assets/product/11.jpg",
       "category": "braslet",
-      "avaleble": "false"
+      "avaleble": "false",
+      "article": "000002"
     }
   ],
   "form": [
     {
-      "name": "Lohn",
-      "email": "loh@mail.ru",
-      "address": "jghfu",
-      "phone": "15+4",
-      "description": "hjrhj rujgfh ruruv ruyhgr yfurh furhgfvu erughfue",
-      "products": [],
-      "id": 1
-    },
-    {
-      "name": "lindsey",
-      "email": "loh@mail.ru",
-      "address": "jghfu",
-      "phone": "15+4",
-      "description": "hjrhj rujgfh ruruv ruyhgr yfurh furhgfvu erughfue",
+      "name": "qwerty",
+      "email": "qwer@mail.ru",
+      "address": "hghygiy",
+      "phone": "+9876543210",
+      "description": "chgfjhggfj ygig yuitiuyg yugi yighg ",
       "products": [
-        {
-          "id": "1",
-          "name": "супер браслет",
-          "price": "1250 p",
-          "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
-          "image": "/assets/product/braslet.jpg",
-          "category": "braslet",
-          "avaleble": "true"
-        },
         {
           "id": "2",
           "name": "Вообще не браслет",
@@ -82,10 +66,32 @@
           "description": "jfdgnsjfdbngdjlfgbndjgnldfnghljdfngjlkfdngljdsfngbljdfngljdfnghljsdfngbldfjngbldjsnfgljdsfgh",
           "image": "/assets/product/11.jpg",
           "category": "braslet",
-          "avaleble": "false"
+          "avaleble": "false",
+          "article": "000002"
+        },
+        {
+          "id": "1",
+          "name": "какой-то браслет",
+          "price": "1250 p",
+          "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": "true",
+          "article": "000001"
         }
       ],
-      "id": 2
+      "id": 2,
+      "done": false
+    },
+    {
+      "name": "Nursultan",
+      "email": "nur@mail.ru",
+      "address": "ef er4 r4t4t785",
+      "phone": "+9874561230",
+      "description": "rhgfhr erghierhifh 3urthfe gfeiurgfheurg eiuruhgfe erughieurgh 4rgtu",
+      "products": [],
+      "id": 3,
+      "done": true
     }
   ]
 }

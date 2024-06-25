@@ -342,11 +342,8 @@ const dispatch = useDispatch();
   <button className="btn__more">ЕЩЕ</button>
   </li>
 </ul>
-
-
-
-
     </div>
+
     </section>
   )
 }

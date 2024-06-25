@@ -26,9 +26,8 @@ function Cart() {
     }
   }, []);
 
-  const handleSubmit = async (event) => {
+  const Submit = async (event) => {
     event.preventDefault();
-
     const formData = {
       name,
       email,
@@ -53,12 +52,19 @@ function Cart() {
     dispatch(setCartDetails({ [field]: e.target.value }));
   };
 
+  const RemoveItem = (index) => {
+    const updatedCartItems = cartItems.filter((_, i) => i !== index);
+    dispatch(setCartDetails({ cartItems: updatedCartItems}));
+  };
+
   return (
     <section className='cart'>
       <div className="container">
         <div className="cart__box" ref={toTitle}>
           <h1 className="home__title">Форма заявки</h1>
-          <form onSubmit={handleSubmit} className="cart__form">
+
+          
+          <form onSubmit={Submit} className="cart__form">
             <input onChange={FieldChange(setName, 'name')} value={name} type="text" className="cart__input" placeholder='Имя, Фамилия' required/>
             <input
               onChange={FieldChange(setEmail, 'email')}
@@ -87,15 +93,21 @@ function Cart() {
               id="cart__textarea"
               placeholder='Описание заказа'
               required/>
+              
             <div className="cart__product-box">
-            
+
               {cartItems.map((item, index) => (
-                <div className="cart__items-product" key={index}>
-                  <img src={item.image} alt="" className="cart__items-products-img" />
-                  <p className="product__available cart__size">В наличии</p>
-                  <p className="basic__product-price">{item.price} </p>
-                  <p className="basic__product-quantity">1 шт.</p>
-                  <p className="basic__product-more">{item.name}</p>
+                <div className='cart__product-container'>
+                  <div className="cart__items-product" key={index}>
+                    <img src={item.image} alt="" className="cart__items-products-img" />
+                    <p className="product__available cart__size">В наличии</p>
+                    <p className="basic__product-price">{item.price} </p>
+                    <p className="basic__product-quantity">1 шт.</p>
+                    <p className="basic__product-more">{item.name}</p>
+                  
+                  </div>
+                  <button type='button' onClick={() => RemoveItem(index)} className="basic__product-delete-btn">
+                  </button>
                 </div>
               ))}
             </div>
@@ -110,7 +122,7 @@ function Cart() {
               </label>
             </div>
             <button type="submit" className="cart__btn">Отправить заявку</button>
-          </form>
+            </form>
           {error && <p className="error-message">{error}</p>}
         </div>
       </div>

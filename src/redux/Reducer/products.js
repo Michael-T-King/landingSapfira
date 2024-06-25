@@ -8,6 +8,7 @@ const initialState = {
             description: '',
             image: '',
             category:'',
+            article: '',
             avaleble: ''
 
         }

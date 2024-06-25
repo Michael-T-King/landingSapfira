@@ -29,4 +29,17 @@
     background-repeat: no-repeat;
     opacity: 0.6;
   }*/
+
+  .btn__up {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    background: url('../../images/toUp.png');
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+    z-index: 999;
+  border-radius: 50%;
+  cursor: pointer;
+  }
 }

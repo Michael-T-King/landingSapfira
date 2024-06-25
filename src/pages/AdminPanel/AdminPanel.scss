@@ -1,0 +1,117 @@
+.admin {
+  position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+height: 100dvh;
+margin: 0;
+overflow-y: hidden;
+
+.admin__to-home {
+  font-size: 1rem;
+  color: #f2f2f2;
+  text-decoration: underline;
+  margin-top: 30px;
+  font-family: Fira Sans, serif;
+
+  &:hover {
+    color: #999;
+  }
+
+  &:active{
+    color: #fff;
+  }
+}
+
+.admin__title {
+  font-size: 2rem;
+  text-align: center;
+  font-family: Fira Sans, serif;
+  background: linear-gradient(135deg, #8F54D9, #C55BDD);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  color: #8F54D9; 
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+}
+
+.admin__box {
+position: relative;
+display: flex;
+justify-content: center;
+width: 100%;
+height: 100%;
+
+.admin__aside {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+background:linear-gradient(90deg, #8F54D9, #C55BDD) ;
+border-top-left-radius: 1rem;
+
+.admin__aside-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+color: #f2f2f2;
+font-size: 1rem;
+font-family: Fira Sans, serif;
+margin: 100px 20px;
+gap: 40px;
+align-items: center;
+justify-content: center;
+width: 100%;
+padding-left:20px ;
+
+
+.admin__aside-items {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  text-wrap: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    color: #999;
+      }
+  
+  &:active {
+    width: 100%;
+
+    background-color: #f2f2f2;
+    color: #444;
+    padding: 30px 20px;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+      }
+    }
+  }
+  .checked__items {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    color: #444;
+    padding: 30px 20px;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+  }
+}
+
+  .admin__right {
+    position: relative;
+    width: 85%;
+    height: 100%;
+    background-color: #f2f2f2;
+    overflow-y: auto;
+  }
+}

@@ -12,6 +12,7 @@ const OneProduct = () => {
     let id = location.pathname.split('/').at(-1);
     const dispatch = useDispatch();
     const { currentProduct } = useSelector((state) => state.products);
+    const cartItems = useSelector((state) => state.cart.cartItems);
     const Product = currentProduct;
     const toTitle = useRef(null);
 
@@ -38,17 +39,21 @@ const OneProduct = () => {
     }
 
     const AddToCart = () => {
-        dispatch(addToCart(Product));
+        const productInCart = cartItems.find(item => item.id === currentProduct.id);
+        if (!productInCart) {
+            dispatch(addToCart(currentProduct));
+        }
     };
 
     return (
         <section>
-            <div className="container">
-                <div className='one__card-box' ref={toTitle}>
+            <div className="container" ref={toTitle}>
+                <div className='one__card-box' >
                     <img src={Product.image} alt="product img" className='product__img' />
                     <div className="one__card-description-box">
                         <h1 className="one__card-title">{Product.name}</h1>
                         <p className="one__card-description">{Product.description}</p>
+                        <p className="one__card-article">Артикул: {Product.article}</p>
                         <button className="one__card-btn" onClick={AddToCart}>
                             Добавить к оформлению
                         </button>

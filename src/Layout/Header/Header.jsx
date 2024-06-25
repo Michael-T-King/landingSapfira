@@ -5,6 +5,7 @@ import Logo from '../../images/sapfira-light.png';
 import LogoViolet from '../../images/sapfira-violet.png';
 import BlueGuy from '../../images/header-img.png';
 
+
 const Header = () => {
 
   const location = useLocation();
@@ -101,6 +102,7 @@ const Header = () => {
   {user?.user.userName === 'admin' && <div><Link to='/AdminPanel'>панель Администратора</Link></div>}
           </div>
       </div>
+    
     </div>
   );
 };

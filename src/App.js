@@ -7,7 +7,7 @@ import Registration from './pages/Registration/Registration';
 import AdminPanel from './pages/AdminPanel/ApminPanel';
 import Cart from './pages/Cart/Cart';
 import SuccessOrder from './pages/Cart/SuccessOrder/SuccessOrder';
-import OneProduct from './pages/OneProduct/OneProduct'
+import OneProduct from './pages//OneProduct/OneProduct'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {

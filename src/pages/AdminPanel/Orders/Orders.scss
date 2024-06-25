@@ -1,0 +1,79 @@
+.order {
+  font-family: 'Fira Sans', serif;
+  padding: 1rem;
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .order__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+
+    tr th {
+      background-color: #f8ee7d;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 0.5rem 1rem;
+      word-wrap: break-word;
+      font-size: 1rem;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    td {
+      background-color: rgb(211, 216, 241);
+      max-width: 20rem;
+      margin-bottom: 2rem;
+    }
+
+    tr td:nth-child(0) {
+      max-width: 0.5rem;
+      width: 0.5rem;
+    }
+
+    tr td:nth-child(1) {
+      max-width: 6rem;
+      width: 3rem;
+    }
+
+    td input {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    td button {
+      position: relative;
+      background-image: url('../../../images/delete.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      background-color: transparent;
+      width: 1.5rem;
+      height: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      &:hover {
+        width: 1.7rem;
+        height: 1.7rem;
+          }
+          &:active {
+            opacity: 0.2;
+          }
+    }
+  }
+  .admin__checked {
+    background-color: #a7f9b8 !important;
+  }
+}
