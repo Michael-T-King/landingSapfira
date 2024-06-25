@@ -1,5 +1,5 @@
 .product {
-
+overflow-y: auto;
   .add__product-form {
     display: flex;
     position: relative;
@@ -12,8 +12,81 @@
   .product__input {
     width: 30rem;
     height: 3rem;
-    border-radius: 0.5rem;
     padding: 0 1rem;
-    
+    font-family: Fira Sans, serif;
+    border-radius: 0.3rem;
+  border: 1px solid #4f43f1;
+  padding-left: 20px;
+  font-size: 1.3rem;
+  transition: 0.3s;
+
+&:hover {
+  box-shadow: 2px 0px 15px rgba(#000000, 0.6);
+}
   }
+
+  &__input:focus  {
+    border: 2px solid #fa3fde;
+    outline: none;
+  }
+
+.product__textarea {
+  width: 30rem;
+    min-height: 6rem;
+    padding: 0 1rem;
+    font-family: Fira Sans, serif;
+    border-radius: 0.3rem;
+  border: 1px solid #4f43f1;
+  padding-left: 20px;
+  font-size: 1.3rem;
+  transition:box-shadow 0.3s;
+  resize: vertical;
+
+&:hover {
+  box-shadow: 2px 0px 15px rgba(#000000, 0.6);
+}
+&:focus  {
+  border: 2px solid #fa3fde;
+  outline: none;
+}
+  }
+
+  .add__image {
+    list-style: none;
+    display: flex;
+    position: relative;
+    padding: 5px 20px;
+    font-size: 1.2rem;
+    color: #4f43f1;
+    border: 1px solid #fa3fde;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    margin-bottom: 20px;
+    transition: 0.3s;
+cursor: pointer;
+
+    &:hover {
+      box-shadow: 3px 7px 15px rgba(#000000, 0.6);
+    }
+  }
+
+  .checkbox__box {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: Fira Sans, serif;
+
+  }
+
+  .product__checkbox {
+   width: 1.3rem;
+   height: 1.3rem; 
+  }
+
+  .margin__btn {
+    position: relative;
+    margin-bottom: 5rem;
+  }
+
 }

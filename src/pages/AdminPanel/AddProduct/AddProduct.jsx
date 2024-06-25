@@ -64,14 +64,14 @@ const handleSubmit = (e) => {
       <input onChange={(e)=>{setName(e.target.value)}} type="text" className="product__input" placeholder='Название' />
       <input onChange={(e)=>{setPrice(e.target.value)}} type="text" className="product__input" placeholder='Цена' />
       <input onChange={(e)=>{setArticle(e.target.value)}} type="text" className="product__input" placeholder='Артикул' />
-      <textarea onChange={(e)=>{setDescription(e.target.value)}} name="" id="" className="product__textarea"></textarea>
-      <input onChange={(e) => {const fileName = e.target.value.split('\\').pop(); setImage(`/assets/product/${fileName}`);}} type="file" accept="image/png, image/jpeg"></input>
+      <textarea onChange={(e)=>{setDescription(e.target.value)}} name="" id="" className="product__textarea" placeholder='Описание товара'></textarea>
+      <input onChange={(e) => {const fileName = e.target.value.split('\\').pop(); setImage(`/assets/product/${fileName}`);}} type="file" accept="image/png, image/jpeg" className='add__image'></input>
     <div className='checkbox__box'>
         <input onChange={(e) => { setAvaleble(e.target.checked ? "true" : "false") }} type="checkbox" id='product__checkbox' className="product__checkbox"/>
   
         <label htmlFor="product__checkbox">в наличии</label>
     </div>
-      <button onClick={Product} type='submit' className="product__btn">Добавить товар</button>
+      <button onClick={Product} type='submit' className="login__btn margin__btn">Добавить товар</button>
 
 </form>
     
