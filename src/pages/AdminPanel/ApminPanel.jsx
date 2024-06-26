@@ -44,7 +44,8 @@ function AdminPanel() {
       <h1 className="admin__title">Панель администратора</h1>
       <div className='admin__box'>
         <aside className="admin__aside">
-          <Link to='/' className='admin__to-home'>На главную</Link>
+        <a href='/' className='admin__to-home'>На главную</a>
+
           <ul className="admin__aside-list">
           <li onClick={() => ItemClick('Заказы')} className={`admin__aside-items ${selectedItem === 'Заказы' ? 'checked__items' : ''}`}>Заказы</li>
             <li onClick={() => ItemClick('Графики')} className={`admin__aside-items ${selectedItem === 'Графики' ? 'checked__items' : ''}`}>Графики</li>

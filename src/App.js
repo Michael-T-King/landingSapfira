@@ -9,6 +9,7 @@ import Cart from './pages/Cart/Cart';
 import SuccessOrder from './pages/Cart/SuccessOrder/SuccessOrder';
 import OneProduct from './pages//OneProduct/OneProduct'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import SuccessEdit from './pages/AdminPanel/EditProduct/SuccessEdit/SuccessEdit';
 
 function App() {
   const location = useLocation();
@@ -26,7 +27,9 @@ function App() {
             <Route path={'Login'} element={<Login />} />
             <Route path={'Registration'} element={<Registration />} />
             <Route path={'AdminPanel'} element={<AdminPanel />} />
+            
             <Route path={'Success'} element={<SuccessOrder/>} />
+            <Route path={'SuccessEdit'} element={<SuccessEdit/>} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

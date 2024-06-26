@@ -14,7 +14,8 @@ import {setAllProducts} from '../../../redux/Reducer/products.js'
 function Basic() {
 
 const dispatch = useDispatch();
-  const {data} = useSelector((state)=>state.products) 
+const location = useLocation();
+const { data = [] } = useSelector((state) => state.products); 
   useEffect(() => {
     const GetProducts = async () => {
       try {
@@ -25,7 +26,7 @@ const dispatch = useDispatch();
       }
     };
     GetProducts();
-  }, [dispatch]);
+  }, [dispatch, location.pathname]);
   
   const Braslets = data.filter((element) => element?.category === 'braslet');
   const [visibleCount, setVisibleCount] = useState(4);

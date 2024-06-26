@@ -1,23 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    data: [
-        {
-            name: '',
-            price: '',
-            description: '',
-            image: '',
-            category:'',
-            article: '',
-            avaleble: ''
-
-        }
-    ],
+    data: [],
     currentProduct: null,
     errors: '',
-    status: '',
+status: '',
     filter: {
-        category: ''
+    category: ''
     }
 }
 
@@ -25,14 +14,17 @@ export const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-        setAllProducts: (state, action) => {
-            state.data = action.payload;
+    setAllProducts: (state, action) => {
+        state.data = action.payload;
+    },
+    setCurrentProduct: (state, action) => {
+        state.currentProduct = action.payload;
+    },
+    removeProduct: (state, action) => {
+        state.data = state.data.filter(item => item.id !== action.payload);
         },
-        setCurrentProduct(state, action) {
-            state.currentProduct = action.payload;
-          }
     }
-})
+});
 
-export const { setAllProducts, setCurrentProduct} = productsSlice.actions;
+export const { setAllProducts, setCurrentProduct, removeProduct } = productsSlice.actions;
 export default productsSlice.reducer;

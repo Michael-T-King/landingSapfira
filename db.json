@@ -19,8 +19,8 @@
     {
       "id": "1",
       "name": "какой-то браслет",
-      "price": "1250 p",
-      "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
+      "price": "750р",
+      "description": "этот браслет сделан для того чтобы быть браслетом.\nвес: 600 грамм\nдлина: 35см.\nцвет: разный",
       "image": "/assets/product/braslet.jpg",
       "category": "braslet",
       "avaleble": true,
@@ -29,7 +29,7 @@
     {
       "id": "2",
       "name": "это совсем не браслет",
-      "price": "793 p",
+      "price": "750р",
       "description": "этот браслет нужно насить на ушах",
       "image": "/assets/product/11.jpg",
       "category": "braslet",
@@ -46,28 +46,6 @@
       "done": false,
       "image": "/assets/product/about us.jpg",
       "id": "GqU-fA0"
-    },
-    {
-      "category": "braslet",
-      "name": "test",
-      "price": "test",
-      "description": "test",
-      "avaleble": true,
-      "article": "test",
-      "done": false,
-      "image": "/assets/product/google.png",
-      "id": "1NEe4p4"
-    },
-    {
-      "category": "braslet",
-      "name": "это не просто браслет",
-      "price": "9999",
-      "description": "какой-то браслет из браслетов",
-      "avaleble": false,
-      "article": "000005",
-      "done": false,
-      "image": "/assets/product/google.png",
-      "id": "VGRsDNR"
     }
   ],
   "form": [
@@ -103,16 +81,6 @@
       "done": true
     },
     {
-      "name": "Nursultan",
-      "email": "nur@mail.ru",
-      "address": "ef er4 r4t4t785",
-      "phone": "+9874561230",
-      "description": "rhgfhr erghierhifh 3urthfe gfeiurgfheurg eiuruhgfe erughieurgh 4rgtu",
-      "products": [],
-      "id": 3,
-      "done": false
-    },
-    {
       "name": "имя фамилия",
       "email": "mail@mail.ru",
       "address": "тест",
@@ -130,7 +98,8 @@
           "article": "000001"
         }
       ],
-      "id": 4
+      "id": 4,
+      "done": false
     }
   ]
 }

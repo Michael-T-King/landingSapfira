@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import './EditProduct.scss';
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setAllProducts } from '../../../redux/Reducer/products.js';
+import { setAllProducts, removeProduct } from '../../../redux/Reducer/products.js';
+import { useNavigate } from 'react-router-dom';
 
 function EditProduct() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [article, setArticle] = useState("");
-  const [Product, setProduct] = useState(null);
+  const [product, setProduct] = useState(null);
   const [category, setCategory] = useState("");
-  const [avaleble, setAvaleble] = useState(false);
+  const [available, setAvailable] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState("");
   const [imagePreview, setImagePreview] = useState("");
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
 
   const GetArticle = (e) => {
     e.preventDefault();
@@ -27,17 +29,16 @@ function EditProduct() {
         if (product) {
           setProduct(product);
           setCategory(product.category);
-          setAvaleble(product.avaleble === true);
+          setAvailable(product.available === true);
           setId(product.id);
           setImage(product.image);
           setName(product.name);
           setPrice(product.price);
           setDescription(product.description);
-        
         } else {
           setProduct(null);
           setCategory("");
-          setAvaleble(false);
+          setAvailable(false);
           setImagePreview("");
         }
       })
@@ -47,7 +48,7 @@ function EditProduct() {
   };
 
   const handleCheckboxChange = (e) => {
-    setAvaleble(e.target.checked);
+    setAvailable(e.target.checked);
   };
 
   const handleImageChange = (e) => {
@@ -62,27 +63,37 @@ function EditProduct() {
     }
   };
 
+  const Edit = async (e) => {
+    e.preventDefault();
 
-const Edit = async(e) =>{
-  e.preventDefault();
+    const EditData = {
+      category,
+      name,
+      price,
+      article,
+      description,
+      image,
+      available
+    };
 
-  const EditData = {
-    category,
-    name,
-    price,
-    article,
-    description,
-    image,
-    avaleble
-  }
- try {
+    try {
       await axios.patch(`http://localhost:8080/products/${id}`, EditData);
-      dispatch(setAllProducts(EditData));
+      dispatch(setAllProducts(await axios.get('http://localhost:8080/products').then(res => res.data)));
+      navigate('/SuccessEdit');
     } catch (error) {
       console.log('Ошибка добавления товара', error);
     }
-};
-  
+  };
+
+  const deleteProduct = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/products/${id}`);
+      dispatch(removeProduct(id));
+      setProduct(null);
+    } catch {
+      console.log("Ошибка при удалении товара");
+    }
+  };
 
   return (
     <section className='edit__product'>
@@ -97,8 +108,8 @@ const Edit = async(e) =>{
         <button type="submit" className="login__btn btn__size">Найти</button>
       </form>
 
-      {Product ? (
-        <form className="edit__product">
+      {product ? (
+        <form className="edit__product" onSubmit={Edit}>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -118,48 +129,43 @@ const Edit = async(e) =>{
           </select>
 
           <div className='input__box'>
-            <input onChange={(e) => {setName(e.target.value)}} type="text" id='name' className='product__input' placeholder={Product.name} />
+            <input onChange={(e) => setName(e.target.value)} type="text" id='name' className='product__input' value={name} placeholder="Название" />
             <label htmlFor="name">Название</label>
           </div>
 
           <div className='input__box'>
-            <input onChange={(e) => {setPrice(e.target.value)}} type="text" id='price' className='product__input' placeholder={Product.price} />
+            <input onChange={(e) => setPrice(e.target.value)} type="text" id='price' className='product__input' value={price} placeholder="Цена" />
             <label htmlFor="price">Цена</label>
           </div>
 
           <div className='input__box'>
-            <input onChange={(e) => {setArticle(e.target.value)}} type="text" id='article' className='product__input' placeholder={Product.article} />
+            <input onChange={(e) => setArticle(e.target.value)} type="text" id='article' className='product__input' value={article} placeholder="Артикул" />
             <label htmlFor="article">Артикул</label>
           </div>
 
           <div className='input__box'>
-            <textarea onChange={(e) => {setDescription(e.target.value)}} id='description' className='product__textarea' placeholder={Product.description} />
+            <textarea onChange={(e) => setDescription(e.target.value)} id='description' className='product__textarea' value={description} placeholder="Описание" />
             <label htmlFor="description">Описание</label>
           </div>
 
-
-
-            <div className='image__server-box'>
-            {Product.image && <img src={Product.image} alt={Product.name} className='find__img' />}
+          <div className='image__server-box'>
+            {product.image && <img src={product.image} alt={product.name} className='find__img' />}
             <p>изображение для продукта</p>
-            </div>
+          </div>
 
           <div className='image__box'>
-            <input  onChange={handleImageChange} type="file" accept="image/png, image/jpeg" className='edit__image' id='edit__image' value = {Image} />
+            <input onChange={handleImageChange} type="file" accept="image/png, image/jpeg" className='edit__image' id='edit__image' />
             {imagePreview && <img src={imagePreview} alt="Preview" className='preview__img' />}
           </div>
 
           <div className='checkbox__box'>
-            <input
-              type="checkbox"
-              id='product__checkbox'
-              className="product__checkbox"
-              checked={avaleble}
-              onChange={handleCheckboxChange}
-            />
-            <label htmlFor="product__checkbox">{avaleble ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
+            <input type="checkbox" id='product__checkbox' className="product__checkbox" checked={available} onChange={handleCheckboxChange} />
+            <label htmlFor="product__checkbox">{available ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
           </div>
-          <button onClick={Edit} className="login__btn btn">Изменить</button>
+          <div className='buttons__box'>
+            <button type="submit" className="login__btn btn">Изменить</button>
+            <button type="button" onClick={deleteProduct} className="login__btn btn">Удалить</button>
+          </div>
         </form>
       ) : (
         <p>Продукт с артикулом {article} не найден</p>
