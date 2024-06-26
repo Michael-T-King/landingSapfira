@@ -27,7 +27,7 @@ const dispatch = useDispatch();
     GetProducts();
   }, [dispatch]);
   
-  const Braslets = data.filter((element) => element.category === 'braslet');
+  const Braslets = data.filter((element) => element?.category === 'braslet');
   const [visibleCount, setVisibleCount] = useState(4);
 
   const showMoreProducts = () => {
@@ -50,7 +50,7 @@ const dispatch = useDispatch();
 
   <li className="basic__items-product" key={el.id}> <Link to={`/oneproduct/${el.id}`}>
       <img src={el.image} alt="" className="basic__items-products-img" />
-      <p className= {el.avaleble === 'true'?"product__avaleble":"product__avaleble product__not-avaleble"}>{el.avaleble === 'true'? "В наличии" : "Нет в наличии"}</p>
+      <p className= {el.avaleble === true?"product__avaleble":"product__avaleble product__not-avaleble"}>{el.avaleble === true? "В наличии" : "Нет в наличии"}</p>
       <p className="basic__product-price">{el.price}</p>
       <p className="basic__product-quantity">1 шт.</p>
       <p className="basic__product-more">{el.name}</p>

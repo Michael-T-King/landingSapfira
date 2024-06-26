@@ -14,6 +14,7 @@ function AddProduct() {
   const [article, setArticle] = useState('');
   const [imagePreviw, setImagePreview] = useState('');
 
+
   const dispatch = useDispatch();
 
   const Product = async (event) => {
@@ -73,7 +74,7 @@ function AddProduct() {
         <input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className='add__image' required />
         {image && <img src={imagePreviw} alt="Preview" className='preview__img' />}
         <div className='checkbox__box'>
-          <input checked={avaleble} onChange={(e) => setAvailable(e.target.checked? "true": "false")} type="checkbox" id='product__checkbox' className="product__checkbox" required/>
+          <input checked={avaleble} onChange={(e) => setAvailable(e.target.checked? true: false)} type="checkbox" id='product__checkbox' className="product__checkbox" required/>
           <label htmlFor="product__checkbox">в наличии</label>
         </div>
         <button type='submit' className="login__btn margin__btn">Добавить товар</button>

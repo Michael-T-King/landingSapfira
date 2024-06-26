@@ -10,7 +10,12 @@ function EditProduct() {
   const [Product, setProduct] = useState(null);
   const [category, setCategory] = useState("");
   const [avaleble, setAvaleble] = useState(false);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState();
   const [imagePreview, setImagePreview] = useState("");
+  const [id, setId] = useState();
 
   const GetArticle = (e) => {
     e.preventDefault();
@@ -22,8 +27,13 @@ function EditProduct() {
         if (product) {
           setProduct(product);
           setCategory(product.category);
-          setAvaleble(product.avaleble === "true");
-         
+          setAvaleble(product.avaleble === true);
+          setId(product.id);
+          setImage(product.image);
+          setName(product.name);
+          setPrice(product.price);
+          setDescription(product.description);
+        
         } else {
           setProduct(null);
           setCategory("");
@@ -42,6 +52,7 @@ function EditProduct() {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+    setImage(file);
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -51,6 +62,26 @@ function EditProduct() {
     }
   };
 
+
+const Edit = async(e) =>{
+  e.preventDefault();
+
+  const EditData = {
+    category,
+    name,
+    price,
+    article,
+    description,
+    image,
+    avaleble
+  }
+ try {
+      await axios.patch(`http://localhost:8080/products/${id}`, EditData);
+      dispatch(setAllProducts(EditData));
+    } catch (error) {
+      console.log('Ошибка добавления товара', error);
+    }
+};
   
 
   return (
@@ -87,22 +118,22 @@ function EditProduct() {
           </select>
 
           <div className='input__box'>
-            <input type="text" id='name' className='product__input' placeholder={Product.name} />
+            <input onChange={(e) => {setName(e.target.value)}} type="text" id='name' className='product__input' placeholder={Product.name} />
             <label htmlFor="name">Название</label>
           </div>
 
           <div className='input__box'>
-            <input type="text" id='price' className='product__input' placeholder={Product.price} />
+            <input onChange={(e) => {setPrice(e.target.value)}} type="text" id='price' className='product__input' placeholder={Product.price} />
             <label htmlFor="price">Цена</label>
           </div>
 
           <div className='input__box'>
-            <input type="text" id='article' className='product__input' placeholder={Product.article} />
+            <input onChange={(e) => {setArticle(e.target.value)}} type="text" id='article' className='product__input' placeholder={Product.article} />
             <label htmlFor="article">Артикул</label>
           </div>
 
           <div className='input__box'>
-            <textarea id='description' className='product__textarea' placeholder={Product.description} />
+            <textarea onChange={(e) => {setDescription(e.target.value)}} id='description' className='product__textarea' placeholder={Product.description} />
             <label htmlFor="description">Описание</label>
           </div>
 
@@ -114,7 +145,7 @@ function EditProduct() {
             </div>
 
           <div className='image__box'>
-            <input  onChange={handleImageChange} type="file" accept="image/png, image/jpeg" className='edit__image' id='edit__image' />
+            <input  onChange={handleImageChange} type="file" accept="image/png, image/jpeg" className='edit__image' id='edit__image' value = {Image} />
             {imagePreview && <img src={imagePreview} alt="Preview" className='preview__img' />}
           </div>
 
@@ -128,7 +159,7 @@ function EditProduct() {
             />
             <label htmlFor="product__checkbox">{avaleble ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
           </div>
-          <button className="login__btn btn">Изменить</button>
+          <button onClick={Edit} className="login__btn btn">Изменить</button>
         </form>
       ) : (
         <p>Продукт с артикулом {article} не найден</p>

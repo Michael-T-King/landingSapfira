@@ -13,27 +13,6 @@
       "userName": "mail",
       "phone": "123456789",
       "id": 2
-    },
-    {
-      "email": "michaeltitarenko@gmail.com",
-      "password": "$2a$10$SDOaJEI0UuDZpD18vavcg.tsNlhQ/M5x6Sg7ZU4/F/NxvZ7NBSQVO",
-      "userName": "Michael",
-      "phone": "+996551465444",
-      "id": 3
-    },
-    {
-      "email": "mail@yahoo.com",
-      "password": "$2a$10$YnpCsKC.b10CftxzH191Y.e2H8ItRmyPUfhL8CugKpgQw8YUN7N9i",
-      "userName": "Michael",
-      "phone": "+996551465444",
-      "id": 4
-    },
-    {
-      "email": "michael@mail.ru",
-      "password": "$2a$10$rwMio/1ukfsCmzoP1F7/4OY30c03w8CyNza5fqlHPDv/IMWLvvzbG",
-      "userName": "Michael",
-      "phone": "+996551465444",
-      "id": 5
     }
   ],
   "products": [
@@ -44,17 +23,17 @@
       "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
       "image": "/assets/product/braslet.jpg",
       "category": "braslet",
-      "avaleble": "true",
+      "avaleble": true,
       "article": "000001"
     },
     {
       "id": "2",
-      "name": "Вообще не браслет",
+      "name": "это совсем не браслет",
       "price": "793 p",
-      "description": "jfdgnsjfdbngdjlfgbndjgnldfnghljdfngjlkfdngljdsfngbljdfngljdfnghljsdfngbldfjngbldjsnfgljdsfgh",
+      "description": "этот браслет нужно насить на ушах",
       "image": "/assets/product/11.jpg",
       "category": "braslet",
-      "avaleble": "false",
+      "avaleble": false,
       "article": "000002"
     },
     {
@@ -62,7 +41,7 @@
       "name": "new braslet",
       "price": "300",
       "description": "bjhg giig highg ghihy",
-      "avaleble": "false",
+      "avaleble": false,
       "article": "00303",
       "done": false,
       "image": "/assets/product/about us.jpg",
@@ -73,11 +52,22 @@
       "name": "test",
       "price": "test",
       "description": "test",
-      "avaleble": "true",
+      "avaleble": true,
       "article": "test",
       "done": false,
       "image": "/assets/product/google.png",
       "id": "1NEe4p4"
+    },
+    {
+      "category": "braslet",
+      "name": "это не просто браслет",
+      "price": "9999",
+      "description": "какой-то браслет из браслетов",
+      "avaleble": false,
+      "article": "000005",
+      "done": false,
+      "image": "/assets/product/google.png",
+      "id": "VGRsDNR"
     }
   ],
   "form": [
@@ -110,7 +100,7 @@
         }
       ],
       "id": 2,
-      "done": false
+      "done": true
     },
     {
       "name": "Nursultan",
@@ -120,14 +110,14 @@
       "description": "rhgfhr erghierhifh 3urthfe gfeiurgfheurg eiuruhgfe erughieurgh 4rgtu",
       "products": [],
       "id": 3,
-      "done": true
+      "done": false
     },
     {
-      "name": "admin",
-      "email": "admin@mail.ru",
-      "address": "Дом 59, КВ 66",
-      "phone": "+777 777 77 77",
-      "description": "ergerg ergetrgt etrgygetr getrg e5gye nr5y er5ty34 5ty 354t 354t 354ty 354t 35454ty 354ty 345 t",
+      "name": "имя фамилия",
+      "email": "mail@mail.ru",
+      "address": "тест",
+      "phone": "+997554615165",
+      "description": "тест тест",
       "products": [
         {
           "id": "1",
@@ -136,7 +126,7 @@
           "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
           "image": "/assets/product/braslet.jpg",
           "category": "braslet",
-          "avaleble": "true",
+          "avaleble": true,
           "article": "000001"
         }
       ],
