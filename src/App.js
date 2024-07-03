@@ -10,6 +10,8 @@ import SuccessOrder from './pages/Cart/SuccessOrder/SuccessOrder';
 import OneProduct from './pages//OneProduct/OneProduct'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SuccessEdit from './pages/AdminPanel/EditProduct/SuccessEdit/SuccessEdit';
+import SuccessAdd from './pages/AdminPanel/AddProduct/SuccessAdd/SuccessAdd';
+import Chart from './pages/AdminPanel/Graphs/Graphs'
 
 function App() {
   const location = useLocation();
@@ -30,6 +32,8 @@ function App() {
             
             <Route path={'Success'} element={<SuccessOrder/>} />
             <Route path={'SuccessEdit'} element={<SuccessEdit/>} />
+            <Route path={'SuccessAdd'} element={<SuccessAdd/>} />
+            <Route path={'chart'} element={<Chart/>} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

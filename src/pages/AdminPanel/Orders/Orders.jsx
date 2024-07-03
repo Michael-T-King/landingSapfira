@@ -87,7 +87,7 @@ function Orders() {
       <table className='order__table'>
         <thead>
           <tr>
-            <th>ID заказа</th>
+            <th>Дата заказа</th>
             <th>Имя клиента</th>
             <th>Email клиента</th>
             <th>Адрес клиента</th>
@@ -103,7 +103,7 @@ function Orders() {
         <tbody>
           {orders.map((order) => (
             <tr key={order.id}>
-              <td className={checkedState[order.id] ? 'admin__checked' : ''}>{order.id}</td>
+              <td className={checkedState[order.id] ? 'admin__checked' : ''}>{order.day<10?`0${order.day}`: order.day}.{order.month<10?`0${order.month}`: order.month}.{order.year}г. </td>
               <td className={checkedState[order.id] ? 'admin__checked' : ''}>{order.name}</td>
               <td className={checkedState[order.id] ? 'admin__checked' : ''}>{order.email}</td>
               <td className={checkedState[order.id] ? 'admin__checked' : ''}>{order.address}</td>

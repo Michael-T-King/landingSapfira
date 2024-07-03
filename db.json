@@ -1,4 +1,27 @@
 {
+  "clicks": {
+    "logo1": 10,
+    "main": 6,
+    "contacts": 2,
+    "delivery": 5,
+    "cart": 1,
+    "login": 2,
+    "mainPick": 9,
+    "firstBlock": 5,
+    "homeOrder": 2,
+    "secondBlock": 2,
+    "footerLogo": 2,
+    "footerMain": 2,
+    "footerContacts": 10,
+    "footerDelivery": 1,
+    "footerCart": 6,
+    "developer": 2,
+    " footerCart": 0,
+    "vk": 2,
+    "whatsapp": 3,
+    "telegram": 3,
+    "btnUp": 7
+  },
   "users": [
     {
       "email": "admin@mail.ru",
@@ -13,27 +36,34 @@
       "userName": "mail",
       "phone": "123456789",
       "id": 2
+    },
+    {
+      "email": "michaeltitarenko@gmail.com",
+      "password": "$2a$10$SrLz4kx0GnhMigD2nuAHG.ljHxs.lMCK1sKjaTOrgy7ARaSN/nL3C",
+      "userName": "michael",
+      "phone": "65465465",
+      "id": 3
     }
   ],
   "products": [
     {
       "id": "1",
-      "name": "какой-то браслет",
-      "price": "750р",
-      "description": "этот браслет сделан для того чтобы быть браслетом.\nвес: 600 грамм\nдлина: 35см.\nцвет: разный",
+      "name": "this is not braslet",
+      "price": "750",
+      "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
       "image": "/assets/product/braslet.jpg",
       "category": "braslet",
-      "avaleble": true,
+      "avaleble": false,
       "article": "000001"
     },
     {
       "id": "2",
       "name": "это совсем не браслет",
-      "price": "750р",
+      "price": "750",
       "description": "этот браслет нужно насить на ушах",
       "image": "/assets/product/11.jpg",
       "category": "braslet",
-      "avaleble": false,
+      "avaleble": true,
       "article": "000002"
     },
     {
@@ -41,65 +71,208 @@
       "name": "new braslet",
       "price": "300",
       "description": "bjhg giig highg ghihy",
-      "avaleble": false,
+      "avaleble": true,
       "article": "00303",
       "done": false,
       "image": "/assets/product/about us.jpg",
       "id": "GqU-fA0"
+    },
+    {
+      "category": "braslet",
+      "name": "новый браслет 2",
+      "price": "789",
+      "description": "рывпиарцкпиалцруиа гйшцрвшйцуг",
+      "avaleble": true,
+      "article": "00304",
+      "done": false,
+      "image": "/assets/product/google.png",
+      "id": "8-SDexg"
+    },
+    {
+      "category": "braslet",
+      "name": "new Test",
+      "price": "123",
+      "description": "sdfbgvksdbgkshj",
+      "avaleble": true,
+      "article": "00300",
+      "done": false,
+      "image": "/assets/product/google.png",
+      "id": "rb-OSsI"
     }
   ],
   "form": [
     {
-      "name": "qwerty",
-      "email": "qwer@mail.ru",
-      "address": "hghygiy",
-      "phone": "+9876543210",
-      "description": "chgfjhggfj ygig yuitiuyg yugi yighg ",
+      "name": "admin",
+      "email": "admin@mail.ru",
+      "address": "erfrrt",
+      "phone": "+9965551234567",
+      "description": "djhbkfjewrhgf hfuoefhvg eo rhgeo fghuoi",
+      "products": [
+        {
+          "id": "1",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": false,
+          "article": "000001"
+        }
+      ],
+      "year": 2024,
+      "month": 6,
+      "day": 26,
+      "id": 1,
+      "done": true
+    },
+    {
+      "name": "admin",
+      "email": "admin@mail.ru",
+      "address": "gjgf",
+      "phone": "1235464",
+      "description": "gjfjghfjh",
       "products": [
         {
           "id": "2",
-          "name": "Вообще не браслет",
-          "price": "793 p",
-          "description": "jfdgnsjfdbngdjlfgbndjgnldfnghljdfngjlkfdngljdsfngbljdfngljdfnghljsdfngbldfjngbldjsnfgljdsfgh",
+          "name": "это совсем не браслет",
+          "price": "750",
+          "description": "этот браслет нужно насить на ушах",
           "image": "/assets/product/11.jpg",
           "category": "braslet",
-          "avaleble": "false",
+          "avaleble": true,
           "article": "000002"
         },
         {
           "id": "1",
-          "name": "какой-то браслет",
-          "price": "1250 p",
-          "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
           "image": "/assets/product/braslet.jpg",
           "category": "braslet",
-          "avaleble": "true",
+          "avaleble": false,
           "article": "000001"
         }
       ],
-      "id": 2,
-      "done": true
-    },
+      "year": 2024,
+      "month": 7,
+      "day": 2,
+      "id": 2
+    }
+  ],
+  "forGraps": [
     {
-      "name": "имя фамилия",
-      "email": "mail@mail.ru",
-      "address": "тест",
-      "phone": "+997554615165",
-      "description": "тест тест",
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 7,
+      "day": 1,
       "products": [
         {
           "id": "1",
-          "name": "какой-то браслет",
-          "price": "1250 p",
-          "description": "rthymr,th rthmkrthmnlk5 r6ukrthmnly5 5yuk5mn6klumnrlkh 5k6yumnl5khymnlry 56yun kl56mnul5k",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
           "image": "/assets/product/braslet.jpg",
           "category": "braslet",
-          "avaleble": true,
+          "avaleble": false,
           "article": "000001"
         }
       ],
-      "id": 4,
-      "done": false
+      "id": 1
+    },
+    {
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 6,
+      "day": 30,
+      "products": [
+        {
+          "id": "1",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": false,
+          "article": "000001"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 6,
+      "day": 30,
+      "products": [
+        {
+          "id": "1",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": false,
+          "article": "000001"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 6,
+      "day": 30,
+      "id": 5
+    },
+    {
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 7,
+      "day": 2,
+      "id": 6
+    },
+    {
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 7,
+      "day": 3,
+      "id": 7
+    },
+    {
+      "dateOrder": "2024-07-01T10:12:09.401Z",
+      "year": 2024,
+      "month": 7,
+      "day": 3,
+      "id": 8
+    },
+    {
+      "dateOrder": "2024-07-02T15:21:02.178Z",
+      "year": 2024,
+      "month": 7,
+      "day": 2,
+      "products": [
+        {
+          "id": "2",
+          "name": "это совсем не браслет",
+          "price": "750",
+          "description": "этот браслет нужно насить на ушах",
+          "image": "/assets/product/11.jpg",
+          "category": "braslet",
+          "avaleble": true,
+          "article": "000002"
+        },
+        {
+          "id": "1",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": false,
+          "article": "000001"
+        }
+      ],
+      "id": 9
     }
   ]
 }

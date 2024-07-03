@@ -1,10 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './FirstBlock.scss';
 import Pic from '../../../images/10.jpg';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { handleClicks } from '../../../Layout/Header/Header'
 function FirstBlock() {
   const welcomeContainer = useRef(null);
-
+  const dispatch = useDispatch();
+  const clicks = useSelector((state) => state.clickSlice.clicks);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,7 +38,7 @@ function FirstBlock() {
   return (
     <section>
       <div className='container'>
-        <div className='welcome__container' ref={welcomeContainer}>
+        <div onClick={() => handleClicks('firstBlock', clicks, dispatch)}  className='welcome__container' ref={welcomeContainer}>
           <div className='welcome__text'>
             <h3 className='welcome'>
               Добро пожаловать в мир украшений из полимерной глины, где каждое изделие — это уникальное произведение искусства, созданное с любовью и вниманием к деталям. Здесь вы сможете познакомиться с нашей коллекцией украшений и узнать больше о процессе их создания.

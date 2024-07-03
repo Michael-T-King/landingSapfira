@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Cart.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCartDetails } from '../../redux/Reducer/cartSlice';
+import { dataForGraphs } from '../../redux/Reducer/cartSlice';
+
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import products from '../../redux/Reducer/products';
 
 function Cart() {
   const toTitle = useRef(null);
@@ -19,11 +22,22 @@ function Cart() {
   const [phone, setPhone] = useState(cartDetails.phone);
   const [description, setDescription] = useState(cartDetails.description);
   const [error, setError] = useState('');
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [day, setDay] = useState('');
+  // const [products, setProducts] = useState([]);
+
+  const  dateOrder = new Date();
 
   useEffect(() => {
     if (toTitle.current) {
       toTitle.current.scrollIntoView({ behavior: 'smooth' });
     }
+
+     setYear(dateOrder.getUTCFullYear());
+     setMonth (dateOrder.getUTCMonth() + 1);
+     setDay (dateOrder.getUTCDate());
+
   }, []);
 
   const Submit = async (event) => {
@@ -34,7 +48,10 @@ function Cart() {
       address,
       phone,
       description,
-      products: cartItems
+      products: cartItems,
+      year,
+      month,
+      day
     };
 
     try {
@@ -45,6 +62,22 @@ function Cart() {
     } catch (error) {
       setError('Ошибка отправки формы');
     }
+  };
+
+  const addForGraphs = async(e) => {
+    const forGraphs = {
+      dateOrder,
+      year,
+      month,
+      day,
+      products: cartItems,
+    };
+try{
+const { data } = await axios.post('http://localhost:8080/forGraps', forGraphs);
+dispatch(dataForGraphs(data));
+  }catch {
+  console.log("ошибка записи данных на сервер для графиков")
+}
   };
 
   const FieldChange = (sett, field) => (e) => {
@@ -64,7 +97,7 @@ function Cart() {
           <h1 className="home__title">Форма заявки</h1>
 
           
-          <form onSubmit={Submit} className="cart__form">
+          <form onSubmit ={(event) => { Submit(event); addForGraphs(event); }} className="cart__form">
             <input onChange={FieldChange(setName, 'name')} value={name} type="text" className="cart__input" placeholder='Имя, Фамилия' required/>
             <input
               onChange={FieldChange(setEmail, 'email')}

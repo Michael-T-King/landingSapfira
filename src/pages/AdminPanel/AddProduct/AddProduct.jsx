@@ -3,6 +3,7 @@ import './AddProduct.scss';
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAllProducts } from '../../../redux/Reducer/products.js';
+import { useNavigate } from 'react-router-dom';
 
 function AddProduct() {
   const [category, setCategory] = useState('');
@@ -14,7 +15,7 @@ function AddProduct() {
   const [article, setArticle] = useState('');
   const [imagePreviw, setImagePreview] = useState('');
 
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const Product = async (event) => {
@@ -32,6 +33,7 @@ function AddProduct() {
     try {
       await axios.post('http://localhost:8080/products', newProduct);
       dispatch(setAllProducts(newProduct));
+      navigate('/SuccessAdd')
     } catch (error) {
       console.log('Ошибка добавления товара', error);
     }

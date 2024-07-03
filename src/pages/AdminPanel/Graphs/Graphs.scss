@@ -1,0 +1,458 @@
+.graphs {
+  position: relative;
+  width: 100%;
+overflow-y: auto;
+margin-bottom: 5rem;
+&::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../../images/background__card.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0; 
+  opacity: 0.1;
+}
+
+.count__box {
+  position: relative;
+  width: 100%;
+  height: 350px;
+overflow: hidden;
+
+  
+&::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../../images/background__card.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0; 
+  opacity: 0.1;
+}
+
+&::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; 
+  border-radius: 0.4rem; 
+  }
+}
+
+.graphs__box {
+  position: relative;
+  display: block;
+  gap: 2rem;
+  box-shadow: 3px 7px 10px rgba(#000000, 0.6);
+  background-color: #f2f2f2;
+}
+
+.graphs__card-box {
+  width: 100%;
+  position: relative;
+  display: flex;
+  gap: 2rem;
+}
+
+.graphs__container {
+  margin-top: 2rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.garaphs__card {
+  width: 19rem;
+  height: 13rem;
+  border-radius: 0.4rem;
+  box-shadow: 3px 7px 10px rgba(#000000, 0.6);
+  margin-left: 2rem;
+  margin-top: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f2f2f2;
+}
+
+.card__title {
+  font-family: Fira Sans, serif;
+  font-size: 1rem;
+  text-align: center;
+padding: 0.5rem;
+  background-color: #fff;
+  width: 100%;
+  color: #444;
+  z-index: 2;
+  font-weight: 400;
+}
+
+.card__value {
+  font-family: Fira Sans, serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-top: 20%;
+  font-size: 3rem;
+z-index: 2;
+}
+.color__total {
+  position: relative;
+  width: 19rem;
+  height: 13rem;
+  border-radius: 0.4rem;
+  overflow: hidden; 
+
+
+&::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../../images/cels.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0; 
+  opacity: 0.4;
+}
+
+&::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(243, 94, 98, 0.5), rgba(251, 3, 11, 0.5));
+  z-index: 1; 
+  border-radius: 0.4rem; 
+  }
+}
+
+
+.color__product {
+  position: relative;
+  width: 19rem;
+  height: 13rem;
+  border-radius: 0.4rem;
+  overflow: hidden; 
+
+
+&::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../../images/cels_for_products.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0; 
+  opacity: 0.2;
+}
+
+&::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(83, 175, 63, 0.5), rgba(28, 152, 3, 0.5));
+  z-index: 1; 
+  border-radius: 0.4rem; 
+  }
+}
+
+
+.color__price {
+  position: relative;
+  width: 19rem;
+  height: 13rem;
+  border-radius: 0.4rem;
+  overflow: hidden; 
+
+
+&::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('../../../images/cels_for_price.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0; 
+  opacity: 0.6;
+}
+
+&::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(255, 191, 0, 0.5), rgba(253, 186, 3, 0.5));
+  z-index: 1; 
+  border-radius: 0.4rem; 
+  }
+}
+
+.calendar__title {
+  font-family: Fira Sans, serif;
+  color: #ff0000;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  font-weight: 600;
+}
+
+.calendar {
+  position: relative; 
+  display: flex;
+  width: 55rem;
+  gap: 1rem;
+  left: 2rem;
+  font-family: Fira Sans, serif;
+  font-size: 2rem;
+  color: rgb(170, 89, 245);
+  z-index: 3;
+
+}
+
+.card__graphs-box {
+  font-family: Fira Sans, serif;
+width: 100%;
+position: absolute;
+display: flex;
+gap: 3rem;
+bottom: 2rem;
+justify-content: center;
+}
+
+.card__box-gap {
+  gap: 1rem;
+  justify-content: center;
+}
+.graph__cards {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 0.4rem;
+  box-shadow: 3px 7px 10px rgba(#000000, 0.6);
+}
+
+.graph__color-order {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../images/cels.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; 
+    opacity: 0.4;
+  }
+  
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(243, 94, 98, 0.5), rgba(251, 3, 11, 0.5));
+    z-index: 1; 
+    border-radius: 0.4rem; 
+    }
+}
+
+.graph__color-product {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../images/cels_for_products.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; 
+    opacity: 0.6;
+  }
+  
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(83, 175, 63, 0.5), rgba(28, 152, 3, 0.5));
+    z-index: 0; 
+    border-radius: 0.4rem; 
+    }
+}
+
+.graph__color-price {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../images/cels_for_price.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; 
+    opacity: 0.6;
+  }
+  
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(255, 191, 0, 0.5), rgba(253, 186, 3, 0.5));
+    z-index: 1; 
+    border-radius: 0.4rem; 
+    }
+}
+
+.graphs__cards-title {
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 0.2rem;
+  width: 100%;
+  min-height: 3rem;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.graphs__cards-value {
+  position: relative;
+  display: block;
+  z-index: 2;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  top: 20%;
+}
+
+.doughnut__box {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  margin-left: 1rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  box-shadow: 3px 7px 10px rgba(#000000, 0.6);
+  background-color: transparent;
+  z-index: 3;
+  overflow: hidden;
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../images/background-doughnut.jpg');
+    background-position: center calc(50% + 9rem);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -3; 
+    opacity: 0.1;
+  }
+}
+}
+
+/* Основной стиль для контейнера календаря */
+.react-datepicker {
+  background-color: #f0f0f0; /* Цвет фона */
+  border: 1px solid #ddd; /* Цвет границы */
+}
+
+/* Стиль для дней недели */
+.react-datepicker__day-names {
+  color: #333; /* Цвет текста */
+}
+
+/* Стиль для конкретного дня */
+.react-datepicker__day {
+  color: #555; /* Цвет текста */
+}
+
+/* Стиль для выбранного дня */
+.react-datepicker__day--selected {
+  background-color: #d761f8; /* Цвет фона выбранного дня */
+  color: white; /* Цвет текста выбранного дня */
+}
+
+/* Стиль для текущего дня */
+.react-datepicker__day--today {
+  border: 1px solid #ea00ff; /* Цвет границы текущего дня */
+  color: #ea00ff; /* Цвет текста текущего дня */
+}
+
+.react-datepicker__day--highlighted {
+  background-color: #d761f8; /* Цвет фона выделенного дня */
+  color: white; /* Цвет текста выделенного дня */
+}
+
+.react-datepicker__day--weekend {
+  color: red; /* Цвет текста выходных дней */
+}
+
+.react-datepicker__header {
+  background-color: #ea00ff; /* Цвет фона заголовка */
+  border-bottom: 1px solid #ea00ff; /* Цвет границы заголовка */
+  color: white; /* Цвет текста заголовка */
+}
+
+

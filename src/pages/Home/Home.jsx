@@ -8,9 +8,15 @@ import HowWeDo from './HowWeDo/HowWeDo';
 import HomeOrder from './HomeOrder/HomeOrder';
 import News from './News/News';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { handleClicks } from '../../Layout/Header/Header'
+
 import BtnUp from '../../images/toUp.png';
 
 function Home() {
+  const dispatch = useDispatch();
+  const clicks = useSelector((state) => state.clickSlice.clicks);
+
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -36,7 +42,7 @@ function Home() {
   return (
     <div className='home'>
       {showButton && (
-        <button className='btn__up' onClick={scrollToTop}>
+        <button className='btn__up' onClick={(event) => {{scrollToTop(event)}; {handleClicks('btnUp', clicks, dispatch, event)}}}>
           <img src={BtnUp} alt='' className='btn__up-img' />
         </button>
       )}

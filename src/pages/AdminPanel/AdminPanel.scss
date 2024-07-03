@@ -33,7 +33,7 @@ overflow-y: hidden;
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
   color: #8F54D9; 
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 }
@@ -110,7 +110,7 @@ padding-left:20px ;
   .admin__right {
     position: relative;
     width: 85%;
-    height: 90%;
+    height: 100dvh;
     background-color: #f2f2f2;
     overflow-y: auto;
   }

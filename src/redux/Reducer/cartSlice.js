@@ -21,6 +21,11 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       state.cartItems.push(action.payload);
     },
+
+    dataForGraphs: (state, action) => {
+      state.cartItems.push(action.payload);
+    },
+    
     removeFromAdmin: (state, action) => {
       const index = state.cartItems.findIndex(item => item.id === action.payload);
       if (index !== -1) {
@@ -47,5 +52,5 @@ export const cartSlice = createSlice({
   }
 });
 
-export const { addToCart, setCartDetails, removeFromAdmin, markOrderAsDone } = cartSlice.actions;
+export const { addToCart, setCartDetails, removeFromAdmin, markOrderAsDone, dataForGraphs } = cartSlice.actions;
 export default cartSlice.reducer;

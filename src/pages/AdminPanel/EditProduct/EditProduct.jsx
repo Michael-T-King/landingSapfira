@@ -11,7 +11,7 @@ function EditProduct() {
   const [article, setArticle] = useState("");
   const [product, setProduct] = useState(null);
   const [category, setCategory] = useState("");
-  const [available, setAvailable] = useState(false);
+  const [avaleble, setAvailable] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -73,7 +73,7 @@ function EditProduct() {
       article,
       description,
       image,
-      available
+      avaleble
     };
 
     try {
@@ -150,7 +150,7 @@ function EditProduct() {
 
           <div className='image__server-box'>
             {product.image && <img src={product.image} alt={product.name} className='find__img' />}
-            <p>изображение для продукта</p>
+            <p>изображение товара</p>
           </div>
 
           <div className='image__box'>
@@ -159,8 +159,8 @@ function EditProduct() {
           </div>
 
           <div className='checkbox__box'>
-            <input type="checkbox" id='product__checkbox' className="product__checkbox" checked={available} onChange={handleCheckboxChange} />
-            <label htmlFor="product__checkbox">{available ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
+            <input type="checkbox" id='product__checkbox' className="product__checkbox" checked={avaleble} onChange={handleCheckboxChange} />
+            <label htmlFor="product__checkbox">{avaleble ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
           </div>
           <div className='buttons__box'>
             <button type="submit" className="login__btn btn">Изменить</button>
