@@ -1,0 +1,20 @@
+.news__box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 3rem 0;
+  box-shadow: 7px 15px 20px rgba($color: #000000, $alpha: 0.6);
+
+}
+
+.news__text {
+  font-family: Fira Sans, serif;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #000000, #4f43f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 2rem 2rem ;
+  line-height: 1.5;
+  text-indent: 3rem;
+  font-size: 1.2rem;
+}

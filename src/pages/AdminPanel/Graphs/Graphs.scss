@@ -53,12 +53,17 @@ overflow: hidden;
 }
 
 .graphs__box {
+  width: 700px;
+  height: 580px; 
+  margin-left: 1rem; 
+  margin-bottom: 3rem; 
+  border: 1px solid #888;
   position: relative;
   display: block;
   gap: 2rem;
-  box-shadow: 3px 7px 10px rgba(#000000, 0.6);
-  background-color: #f2f2f2;
+  box-shadow: 3px 7px 10px rgba(0, 0, 0, 0.6);
 }
+
 
 .graphs__card-box {
   width: 100%;
@@ -388,11 +393,9 @@ justify-content: center;
   position: relative;
   width: 700px;
   height: 700px;
-  margin-left: 1rem;
-  margin-bottom: 3rem;
   padding: 1rem;
   box-shadow: 3px 7px 10px rgba(#000000, 0.6);
-  background-color: transparent;
+  background-color: transparent ;
   z-index: 3;
   overflow: hidden;
   &::before {
@@ -409,6 +412,94 @@ justify-content: center;
     z-index: -3; 
     opacity: 0.1;
   }
+}
+
+.last__block {
+  position: relative;
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin-left: 1rem;
+  margin-bottom: 3rem;
+}
+
+.customers__box {
+  position: relative;
+  margin-left: 6.5rem;
+}
+
+.customers {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 0 1rem;
+  width: 30rem;
+  height: 15rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  z-index: 2;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../images/backgroundUsers.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; 
+    opacity: 0.6;
+  }
+  
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(180, 95, 254, 0.5), rgba(118, 2, 250, 0.5));
+    z-index: 0; 
+    border-radius: 0.4rem; 
+    }
+}
+
+.customers__title {
+  font-family: Fira Sans, serif;
+  color: #f2f2f2;
+  margin: 1rem 0;
+  z-index: 2;
+  cursor: default;
+}
+
+.content__box {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+justify-content: center;
+}
+
+.customers__img {
+  position: absolute;
+  left: 1rem;
+  width: 7rem;
+  height: 7rem;
+  z-index: 2;
+}
+
+.users__data {
+  font-family: Fira Sans, serif;
+  color: #f2f2f2;
+  font-size: 5rem;
+  z-index: 2;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  cursor: default;
 }
 }
 

@@ -21,7 +21,7 @@ function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > window.innerHeight) {
+      if (window.scrollY > window.innerHeight) {
         setShowButton(true);
       } else {
         setShowButton(false);

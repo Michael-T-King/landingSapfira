@@ -1,0 +1,26 @@
+.users {
+  font-family: Fira Sans, serif;
+  padding: 1rem;
+
+  .users__table  tr th {
+padding: 0.5rem 1rem;
+    border: 1px solid #444;
+  }
+
+  .users__table  tr td {
+    padding: 0.5rem 1rem;
+        border: 1px solid #444;
+      }
+
+  .blocked__user {
+    background-color: #ff0000;
+  }
+
+  .online {
+    background-color: #00ff00;
+  }
+  .offline {
+    background-color: #444;
+    color: #fff;
+  }
+}

@@ -9,20 +9,41 @@ import Graphs from './Graphs/Graphs';
 import AddProduct from './AddProduct/AddProduct';
 import EditProduct from './EditProduct/EditProduct';
 import AddNews from './AddNews/AddNews';
+import Users from './Users/Users';
+
+import { stateAction } from '../../redux/Reducer/stateSlice';
+import Comments from './Users/Comments/Comments';
 
 function AdminPanel() {
   const [selectedItem, setSelectedItem] = useState(() => {
     const storedItem = localStorage.getItem('selectedItem');
     return storedItem ? JSON.parse(storedItem) : 'Заказы';
-  }); 
+  });
+  
+const dispatch = useDispatch();
+  let state = useSelector(state => state.stateSlice.State);
 
-  const ItemClick = (itemName) => {
-    setSelectedItem(itemName);
-    localStorage.setItem('selectedItem', JSON.stringify(itemName));
+ useEffect(()=>{
+  if (state) {
+    setSelectedItem('Пользователи')
   }
+ }, [state]);
 
-  const ChangeContext = () => {
-    switch (selectedItem) {
+    const ItemClick = (itemName) => {
+      setSelectedItem(itemName);
+      localStorage.setItem('selectedItem', JSON.stringify(itemName));
+  
+      if (itemName !== 'Пользователи') {
+        dispatch(stateAction(false));
+
+      }
+    };
+
+
+  const ChangeContext = ({ selectedItem }) => {
+
+
+    switch (selectedItem ) {
       case 'Заказы':
         return <Orders/>;
       case 'Графики':
@@ -33,7 +54,10 @@ function AdminPanel() {
         return <EditProduct/>;
       case 'Новости':
         return <AddNews/>;
-      
+        case 'Комментарии':
+        return <Comments/>;
+      case 'Пользователи':
+          return <Users/>;
       default:
         return <div>ничего не найдено</div>;
     }
@@ -47,18 +71,19 @@ function AdminPanel() {
         <a href='/' className='admin__to-home'>На главную</a>
 
           <ul className="admin__aside-list">
-          <li onClick={() => ItemClick('Заказы')} className={`admin__aside-items ${selectedItem === 'Заказы' ? 'checked__items' : ''}`}>Заказы</li>
-            <li onClick={() => ItemClick('Графики')} className={`admin__aside-items ${selectedItem === 'Графики' ? 'checked__items' : ''}`}>Графики</li>
+          <li onClick={() => {ItemClick('Заказы'); dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Заказы' ? 'checked__items' : ''}`}>Заказы</li>
+            <li onClick={() => {ItemClick('Графики');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Графики' ? 'checked__items' : ''}`}>Графики</li>
 
-            <li onClick={() => ItemClick('Добавить продукт')} className={`admin__aside-items ${selectedItem === 'Добавить продукт' ? 'checked__items' : ''}`}>Добавить продукт</li>
+            <li onClick={() => {ItemClick('Добавить продукт');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Добавить продукт' ? 'checked__items' : ''}`}>Добавить продукт</li>
 
-            <li onClick={() => ItemClick('Изменить продукт')} className={`admin__aside-items ${selectedItem === 'Изменить продукт' ? 'checked__items' : ''}`}>Изменить продукт</li>
+            <li onClick={() => {ItemClick('Изменить продукт');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Изменить продукт' ? 'checked__items' : ''}`}>Изменить продукт</li>
 
-            <li onClick={() => ItemClick('Новости')} className={`admin__aside-items ${selectedItem === 'Новости' ? 'checked__items' : ''}`}>Новости</li>
+            <li onClick={() =>{ ItemClick('Новости');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Новости' ? 'checked__items' : ''}`}>Новости</li>
+            <li onClick={() =>{ ItemClick('Комментарии');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Комментарии' ? 'checked__items' : ''}`}>Комментарии</li>
           </ul>
         </aside>
         <div className="admin__right">
-        {ChangeContext()}
+        {ChangeContext({ selectedItem })}
         </div>
       </div>
     </section>

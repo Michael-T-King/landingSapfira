@@ -12,6 +12,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SuccessEdit from './pages/AdminPanel/EditProduct/SuccessEdit/SuccessEdit';
 import SuccessAdd from './pages/AdminPanel/AddProduct/SuccessAdd/SuccessAdd';
 import Chart from './pages/AdminPanel/Graphs/Graphs'
+import News from './pages/Home/News/News';
 
 function App() {
   const location = useLocation();

@@ -4,7 +4,12 @@ import axios from 'axios';
 import './Graphs.scss'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { stateAction } from '../../../redux/Reducer/stateSlice';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../../redux/Reducer/stateSlice';
+import usersIcon from '../../../images/user.png'
+import onlineUsers from '../../../images/online.png'
 
 
 import {
@@ -54,14 +59,20 @@ const defaultOptions = {
   },
 };
 
+
 function Chart() {
   const [orders, setOrders] = useState([]);
   const [ clicks, setClicks] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [selectedItem, setSelectedItem] = useState('пользователи');
 
+  const dispatch = useDispatch();
   useEffect(() => {
     fetchOrders();
     fetchClicks();
   }, [orders]);
+
+
 
   //--------------------------- получение кликов --------------------------------
   const fetchClicks = async() => {
@@ -209,7 +220,35 @@ const priceByDay = () => {
   }, 0);
 }
 
-console.log(priceByDay())
+const fetchUsers = async()=>{
+  try{
+ const response = await axios.get('http://localhost:8080/users');
+ setUsers(response.data);
+ dispatch(getUsers(response.data));
+
+
+  }catch(error) {
+ console.error('error fetching users', error);
+  }
+}
+
+const handleUsers = () => {
+  if (!users || users.length === 0) {
+    return 0;
+  }
+  return users.length;
+};
+
+useEffect(()=>{
+  fetchUsers();
+
+},[]);
+
+const handleState = (value) => {
+  dispatch(stateAction(value));
+};
+
+
 
   //-------------------------- рисуем график месяцев -------------------------------------
   const dataMonth = {
@@ -264,7 +303,7 @@ console.log(priceByDay())
 
 
   const doughnutData = {
-    labels: [`логотип в шапке- ${clicks.logo1} раз`, `главная в шапке- ${clicks.main} раз`, `контакты шапка- ${clicks.contacts} раз`, `доставка в шапке- ${clicks.delivery} раз`, `заявка в шапке- ${clicks.cart} раз`, `логин- ${clicks.login} раз`, `по картинке на главной- ${clicks.mainPick} раз`, `блок приветствия- ${clicks.firstBlock} раз`, `оставить заявку на главной- ${clicks.homeOrder} раз`,`блок о нас- ${clicks.secondBlock} раз`, `логотип в футтере ${clicks.footerLogo} раз`, `главная в футтере ${clicks.footerMain} раз`, `контакты в футтере ${clicks.footerContacts} раз`, `доставка в футтере ${clicks.footerDelivery} раз`, `оставить заявку в футтере ${clicks.footerCart} раз`, `вконтакте ${clicks.vk} раз`, `WhatsApp ${clicks.whatsapp} раз`, `Telegram ${clicks.telegram} раз`, `кнопка наверх ${clicks.btnUp} раз` ],
+    labels: [`логотип в шапке- ${clicks.logo1} раз`, `главная в шапке- ${clicks.main} раз`, `контакты шапка- ${clicks.contacts} раз`, `доставка в шапке- ${clicks.delivery} раз`, `заявка в шапке- ${clicks.cart} раз`, `логин- ${clicks.login} раз`, `картинка на главной- ${clicks.mainPick} раз`, `блок приветствия- ${clicks.firstBlock} раз`, `оставить заявку на главной- ${clicks.homeOrder} раз`,`блок о нас- ${clicks.secondBlock} раз`, `логотип в футтере ${clicks.footerLogo} раз`, `главная в футтере ${clicks.footerMain} раз`, `контакты в футтере ${clicks.footerContacts} раз`, `доставка в футтере ${clicks.footerDelivery} раз`, `оставить заявку в футтере ${clicks.footerCart} раз`, `вконтакте ${clicks.vk} раз`, `WhatsApp ${clicks.whatsapp} раз`, `Telegram ${clicks.telegram} раз`, `кнопка наверх ${clicks.btnUp} раз` ],
     datasets: [
       {
         data: [clicks.logo1, clicks.main, clicks.contacts, clicks.delivery, clicks.cart, clicks.login, clicks.mainPick, clicks.firstBlock, clicks.homeOrder, clicks.secondBlock, clicks.footerLogo, clicks.footerMain, clicks.footerContacts, clicks.footerDelivery, clicks.footerCart, clicks.vk, clicks.whatsapp, clicks.telegram, clicks.btnUp],
@@ -343,7 +382,7 @@ borderColor: [
         onChange={handleDateChange}
         dateFormat="dd/MM/yyyy"
         placeholderText="Выберите дату"/>
-         {selectedDate? <p>Данные за: {selectedDate.toLocaleDateString()}</p>: <p>Выберите дату для отображения данных</p>}
+        {selectedDate? <p>Данные за: {selectedDate.toLocaleDateString()}г.</p>: <p>Выберите дату для отображения данных</p>}
     </div>
 
     <div className="graphs__card-box">
@@ -364,16 +403,9 @@ borderColor: [
     </div>
     
 <div className='graphs__container'>
-       <div style={{ width: '700px', 
-       height: '580px', 
-       marginLeft:'1rem', 
-       marginBottom:'3rem', 
-       border: '1px solid #888',
-       position:'relative',
-       }} 
-  
+       <div
       className='graphs__box' >
-       <Bar data={dataDays} options={{ ...defaultOptions, plugins: { ...defaultOptions.plugins, title: { ...defaultOptions.plugins.title, text: 'График заявок по дням за месяц' } } }} style={{padding:'1rem', marginBottom:'3rem'}} />
+       <Bar data={dataDays} options={{ ...defaultOptions, plugins: { ...defaultOptions.plugins, title: { ...defaultOptions.plugins.title, text: 'График заявок по дням за месяц' } } }} style={{padding:'1rem', marginBottom:'3rem',   position: 'relative', backgroundColor: 'transparent'}} className='bar' />
 
       <div className="card__graphs-box">
         <div className="graph__cards graph__color-order">
@@ -397,7 +429,7 @@ borderColor: [
 
        </div>
        
-        <div style={{ maxWidth: '700px', height: '580px', marginLeft:'1rem', marginBottom:'3rem'}} className='graphs__box'>
+        <div style={{ maxWidth: '650px', height: '580px', marginLeft:'1rem', marginBottom:'3rem'}} className='graphs__box'>
           <Bar data={dataMonth} options={{ ...defaultOptions, plugins: { ...defaultOptions.plugins, title: { ...defaultOptions.plugins.title, text: 'График заявок за год' } } }} style={{ padding:'1rem', width:'550px'}}/>
 
           <div className="card__graphs-box card__box-gap">
@@ -422,10 +454,23 @@ borderColor: [
           </div>
 </div>
     
-<div className='doughnut__box'>
-      <Doughnut
-    data={doughnutData}
-    options={doughnutOptions}/>
+<div className='last__block'>
+  <div className='doughnut__box'>
+        <Doughnut
+      data={doughnutData}
+      options={doughnutOptions}/>
+  </div>
+
+  <div className="customers__box">
+  <div onClick={() =>  handleState(true)} className="customers">
+<h3 className="customers__title">Колличество зарегистрированных пользователей</h3>
+      <div className='content__box'>
+      <img  src={onlineUsers} alt="" className="customers__img" />
+      <h2 className="users__data">{handleUsers()}</h2>
+      </div>
+    </div>
+    <div className="customers__online"></div>
+  </div>
 </div>
 
 

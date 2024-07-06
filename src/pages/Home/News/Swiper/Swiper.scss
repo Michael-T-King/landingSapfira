@@ -1,0 +1,50 @@
+.swiper {
+  width: 130%;
+  height: 40rem;
+  box-shadow: 7px 15px 20px rgba($color: #000000, $alpha: 0.6);
+  margin-left: -15%;
+}
+
+.swiper-wrapper {
+
+  position: relative;
+  display: flex;
+margin-bottom: 4rem; 
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 40rem;
+  background-color: #b4b4b4;
+}
+
+.container {
+  position: relative;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 30rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; 
+}
+
+.swiper__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: #999;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet {
+ width: 10px;
+ height: 10px;
+  background: #fd6ee7 ; 
+  margin-bottom: 4rem; 
+}

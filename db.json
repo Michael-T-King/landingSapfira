@@ -1,26 +1,26 @@
 {
   "clicks": {
-    "logo1": 10,
+    "logo1": 12,
     "main": 6,
     "contacts": 2,
     "delivery": 5,
-    "cart": 1,
-    "login": 2,
+    "cart": 4,
+    "login": 6,
     "mainPick": 9,
     "firstBlock": 5,
-    "homeOrder": 2,
+    "homeOrder": 3,
     "secondBlock": 2,
-    "footerLogo": 2,
+    "footerLogo": 6,
     "footerMain": 2,
     "footerContacts": 10,
-    "footerDelivery": 1,
-    "footerCart": 6,
+    "footerDelivery": 5,
+    "footerCart": 7,
     "developer": 2,
     " footerCart": 0,
     "vk": 2,
     "whatsapp": 3,
     "telegram": 3,
-    "btnUp": 7
+    "btnUp": 16
   },
   "users": [
     {
@@ -28,21 +28,36 @@
       "password": "$2a$10$8v/0FWIJgyA2PNZNdKoTROTayw2sy/nea3yvToF3JzCZtbl/Nz2vm",
       "userName": "admin",
       "phone": "123456789",
-      "id": 1
+      "id": 1,
+      "block": false,
+      "status": true
     },
     {
       "email": "mail@mail.ru",
       "password": "$2a$10$NHNoNMi5usAnfLlqbUrn1OeL.loSHLma5WCQc2ujLKR1gpvt00aNW",
       "userName": "mail",
       "phone": "123456789",
-      "id": 2
+      "id": 2,
+      "block": false,
+      "status": true
     },
     {
       "email": "michaeltitarenko@gmail.com",
       "password": "$2a$10$SrLz4kx0GnhMigD2nuAHG.ljHxs.lMCK1sKjaTOrgy7ARaSN/nL3C",
       "userName": "michael",
       "phone": "65465465",
-      "id": 3
+      "id": 3,
+      "block": false,
+      "status": false
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "$2a$10$gZ9S9q6xET1SeDo1LryrjeuubYJsppRavkrao0w06L6fyez/Ypr7e",
+      "userName": "New Name",
+      "phone": "+996551465444",
+      "id": 4,
+      "block": true,
+      "status": false
     }
   ],
   "products": [
@@ -274,5 +289,14 @@
       ],
       "id": 9
     }
-  ]
+  ],
+  "news": {
+    "slider": [
+      {
+        "image": "",
+        "text": ""
+      }
+    ],
+    "newsText": ""
+  }
 }
