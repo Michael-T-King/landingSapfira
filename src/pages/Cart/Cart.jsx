@@ -146,7 +146,7 @@ dispatch(dataForGraphs(data));
             </div>
             <div className="cart__price-box">
               <h3 className="cart__price-text">Общая цена за выбранные товары:</h3>
-              <h2 className="cart__price">200р</h2>
+              <h2 className="cart__price">{cartItems.length > 0? `${cartItems.reduce((acc, el)=> acc + Number(el.price), 0)}р` : '0р'}</h2>
             </div>
             <div className='agree__box'>
               <input type="checkbox" id="agree" name="agree" required />

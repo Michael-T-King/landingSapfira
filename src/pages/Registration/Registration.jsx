@@ -38,7 +38,8 @@ function Registration() {
           // Автоматический вход после регистрации
           const loginUserDat = {
             email,
-            password
+            password,
+            status: true
           };
           const loginResponse = await axios.post('http://localhost:8080/Login', loginUserDat);
           if (loginResponse.data) {

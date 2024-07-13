@@ -12,6 +12,7 @@ import usersIcon from '../../../images/user.png'
 import onlineUsers from '../../../images/online.png'
 
 
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -65,6 +66,9 @@ function Chart() {
   const [ clicks, setClicks] = useState([]);
   const [users, setUsers] = useState([]);
   const [selectedItem, setSelectedItem] = useState('пользователи');
+
+
+
 
   const dispatch = useDispatch();
   useEffect(() => {

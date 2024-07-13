@@ -1,0 +1,110 @@
+.news__admin {
+  position: relative;
+  font-family: Fira Sans, serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 3rem;
+  margin-left: -8rem;
+  margin-bottom: 10rem;
+color: #444;
+
+.preview__container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+gap: 1rem;
+margin-bottom: 2rem;
+}
+
+.news__banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  }
+
+  .new__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30rem;
+    margin-bottom: 2rem;
+
+  }
+
+  .new__input {
+    width: 30rem;
+    height: 3rem;
+    padding: 0.3rem;
+    font-family: Fira Sans, serif;
+    border-radius: 0.3rem;
+  border: 1px solid #4f43f1;
+  padding-left: 20px;
+  font-size: 1.3rem;
+
+
+&:hover {
+  box-shadow: 2px 0px 15px rgba(#000000, 0.6);
+}
+
+  &:focus  {
+    border: 2px solid #fa3fde;
+    outline: none;
+  }
+}
+  .new__textarea {
+    width: 80rem;
+    margin-left: -20rem;
+    min-height: 20rem;
+    padding: 0.3rem;
+    font-family: Fira Sans, serif;
+    border-radius: 0.3rem;
+  border: 1px solid #4f43f1;
+  padding-left: 20px;
+  font-size: 1.3rem;
+  transition:box-shadow 0.3s;
+  resize: vertical;
+
+&:hover {
+  box-shadow: 2px 0px 15px rgba(#000000, 0.6);
+}
+&:focus  {
+  border: 2px solid #fa3fde;
+  outline: none;
+}
+  }
+
+  .new__img {
+    font-family: Fira Sans, serif;
+    position: relative;
+    border: 1px solid #444;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lable {
+    font-family: Fira Sans, serif;
+    margin: 0.5rem;
+  }
+
+  .add__new-image-button {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    width: 3rem;
+    padding: 0.5rem 0;
+  }
+
+  .new__text {
+position: relative;
+display: flex;
+flex-direction: column;
+  }
+}

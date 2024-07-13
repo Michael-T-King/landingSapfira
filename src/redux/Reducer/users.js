@@ -6,9 +6,9 @@ const initialState = {
     email: '',
     password: '',
     phone: '',
-    status: true
+    status: false,
   },
-  currentUser: null
+  currentUser: null,
 };
 
 export const userSlice = createSlice({
@@ -16,16 +16,20 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     registerUser: (state, action) => {
-      state.user = action.payload.obj;
+      state.user = action.payload;
     },
     loginUser: (state, action) => {
-      state.currentUser = action.payload;
+      state.user = action.payload;
+    },
+    logoutUser: (state) => {
+      state.user = initialState.user;
+      state.currentUser = null;
     },
     getUser: (state, action) => {
       state.user = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export default userSlice.reducer;
-export const { registerUser, loginUser, getUser } = userSlice.actions;
+export const { registerUser, loginUser, getUser, logoutUser } = userSlice.actions;

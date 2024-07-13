@@ -11,7 +11,7 @@ function AddProduct() {
   const [image, setImage] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-  const [avaleble, setAvailable] = useState(false);
+  const [available, setAvailable] = useState(false);
   const [article, setArticle] = useState('');
   const [imagePreviw, setImagePreview] = useState('');
 
@@ -25,7 +25,7 @@ function AddProduct() {
       name,
       price,
       description,
-      avaleble,
+      available,
       article,
       done: false,
       image
@@ -76,11 +76,13 @@ function AddProduct() {
         <input type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className='add__image' required />
         {image && <img src={imagePreviw} alt="Preview" className='preview__img' />}
         <div className='checkbox__box'>
-          <input checked={avaleble} onChange={(e) => setAvailable(e.target.checked? true: false)} type="checkbox" id='product__checkbox' className="product__checkbox" required/>
+          <input checked={available} onChange={(e) => setAvailable(e.target.checked? true: false)} type="checkbox" id='product__checkbox' className="product__checkbox" required/>
           <label htmlFor="product__checkbox">в наличии</label>
         </div>
         <button type='submit' className="login__btn margin__btn">Добавить товар</button>
       </form>
+
+      
     </section>
   );
 }

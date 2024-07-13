@@ -7,6 +7,8 @@ import axios from 'axios';
 import Logo from '../../images/sapfira-light.png';
 import LogoViolet from '../../images/sapfira-violet.png';
 import BlueGuy from '../../images/header-img.png';
+import { addUserState } from '../../redux/Reducer/userStateSlice';
+
 
 const getClicks = async (dispatch) => {
   try {
@@ -105,13 +107,15 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const clicks = useSelector((state) => state.clickSlice.clicks);
-
+  
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
   const [data, setData] = useState([]);
+  const [status, setStatus] = useState(false);
+  const [userStatus, setUserStatus] = useState([]);
 
   useEffect(() => {
-    getClicks(dispatch);
-  }, [dispatch]);
+    updateStatus(user?.user?.id, true);
+  }, [dispatch, user]);
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('user')));
@@ -121,7 +125,32 @@ const Header = () => {
     return location.pathname === path ? 'selected' : '';
   };
 
-  const logout = () => {
+  const updateStatus = async (userId, status) => {
+    try {
+      await axios.patch(`http://localhost:8080/users/${userId}`, { status });
+      console.log(`Status updated to ${status}`);
+    } catch (error) {
+      console.error('Unable to update status', error);
+    }
+  };
+
+  useEffect(()=>{
+  const handleSiteExit = async () => {
+    if (user?.user && user?.user?.id) {
+      await updateStatus(user?.user?.id, false);
+    }
+  };
+
+  window.addEventListener('beforeunload', handleSiteExit);
+  return () => {
+    window.removeEventListener('beforeunload', handleSiteExit);
+  };
+}, [user?.user]);
+
+  const logout = async () => {
+    if (user && user?.user && user?.user?.id) {
+      await updateStatus(user?.user?.id, false);
+    }
     localStorage.removeItem('user');
     setUser(null);
     navigate('/login');

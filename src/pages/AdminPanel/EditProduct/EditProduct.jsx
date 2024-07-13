@@ -11,7 +11,7 @@ function EditProduct() {
   const [article, setArticle] = useState("");
   const [product, setProduct] = useState(null);
   const [category, setCategory] = useState("");
-  const [avaleble, setAvailable] = useState(false);
+  const [available, setAvailable] = useState(false);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -29,9 +29,9 @@ function EditProduct() {
         if (product) {
           setProduct(product);
           setCategory(product.category);
-          setAvailable(product.available === true);
+          setAvailable(product.available);
           setId(product.id);
-          setImage(product.image);
+          setImage(...product.image);
           setName(product.name);
           setPrice(product.price);
           setDescription(product.description);
@@ -49,6 +49,7 @@ function EditProduct() {
 
   const handleCheckboxChange = (e) => {
     setAvailable(e.target.checked);
+    console.log(available)
   };
 
   const handleImageChange = (e) => {
@@ -73,7 +74,7 @@ function EditProduct() {
       article,
       description,
       image,
-      avaleble
+      available
     };
 
     try {
@@ -159,8 +160,8 @@ function EditProduct() {
           </div>
 
           <div className='checkbox__box'>
-            <input type="checkbox" id='product__checkbox' className="product__checkbox" checked={avaleble} onChange={handleCheckboxChange} />
-            <label htmlFor="product__checkbox">{avaleble ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
+            <input type="checkbox" id='product__checkbox' className="product__checkbox" checked={available} onChange={(e) => setAvailable(e.target.checked)} />
+            <label htmlFor="product__checkbox">{available ? 'Нажмите чтобы отметить как "Нет в наличии"' : 'Нажмите чтобы отметить как "В наличии"'}</label>
           </div>
           <div className='buttons__box'>
             <button type="submit" className="login__btn btn">Изменить</button>

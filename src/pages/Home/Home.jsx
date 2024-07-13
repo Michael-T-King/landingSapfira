@@ -7,11 +7,13 @@ import HowWeWork from './HowWeWork/HowWeWork';
 import HowWeDo from './HowWeDo/HowWeDo';
 import HomeOrder from './HomeOrder/HomeOrder';
 import News from './News/News';
+import AllComments from './AllComments/AllComments';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { handleClicks } from '../../Layout/Header/Header'
 
 import BtnUp from '../../images/toUp.png';
+import CommentPage from './CommentPage/CommentPage';
 
 function Home() {
   const dispatch = useDispatch();
@@ -52,6 +54,7 @@ function Home() {
       <HowWeDo />
       <HomeOrder />
       <News />
+      <CommentPage/>
     </div>
   );
 }

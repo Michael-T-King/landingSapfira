@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { getUsers, removeUser } from '../../../redux/Reducer/stateSlice';
 import './users.scss';
+import { addUserState } from '../../../redux/Reducer/userStateSlice';
 
 function Users() {
   const dispatch = useDispatch();
   const usersOff = useSelector(state => state.stateSlice.data);
-
-  const [blockUser, setBlockUser] = useState(false);
-
+  const usersStatus = useSelector(state => state.userStateSlice.userState);
+  const online = usersStatus[0].status;
   const getUsersData = async () => {
     try {
       const response = await axios.get(`http://localhost:8080/users/`);
@@ -26,6 +26,7 @@ function Users() {
   const handleBlockUser = async (userId, blockValue) => {
     const blockState = {
       block: blockValue,
+      status:true
     };
     try {
       await axios.patch(`http://localhost:8080/users/${userId}`, blockState);

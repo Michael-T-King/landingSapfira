@@ -1,26 +1,26 @@
 {
   "clicks": {
-    "logo1": 12,
-    "main": 6,
-    "contacts": 2,
-    "delivery": 5,
-    "cart": 4,
-    "login": 6,
-    "mainPick": 9,
-    "firstBlock": 5,
-    "homeOrder": 3,
-    "secondBlock": 2,
-    "footerLogo": 6,
-    "footerMain": 2,
-    "footerContacts": 10,
-    "footerDelivery": 5,
-    "footerCart": 7,
-    "developer": 2,
+    "logo1": 0,
+    "main": 0,
+    "contacts": 0,
+    "delivery": 0,
+    "cart": 0,
+    "login": 3,
+    "mainPick": 0,
+    "firstBlock": 0,
+    "homeOrder": 0,
+    "secondBlock": 0,
+    "footerLogo": 0,
+    "footerMain": 0,
+    "footerContacts": 0,
+    "footerDelivery": 0,
+    "footerCart": 0,
+    "developer": 0,
     " footerCart": 0,
-    "vk": 2,
-    "whatsapp": 3,
-    "telegram": 3,
-    "btnUp": 16
+    "vk": 0,
+    "whatsapp": 0,
+    "telegram": 0,
+    "btnUp": 0
   },
   "users": [
     {
@@ -39,7 +39,7 @@
       "phone": "123456789",
       "id": 2,
       "block": false,
-      "status": true
+      "status": false
     },
     {
       "email": "michaeltitarenko@gmail.com",
@@ -57,7 +57,7 @@
       "phone": "+996551465444",
       "id": 4,
       "block": true,
-      "status": false
+      "status": true
     }
   ],
   "products": [
@@ -68,7 +68,7 @@
       "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
       "image": "/assets/product/braslet.jpg",
       "category": "braslet",
-      "avaleble": false,
+      "available": true,
       "article": "000001"
     },
     {
@@ -78,7 +78,7 @@
       "description": "этот браслет нужно насить на ушах",
       "image": "/assets/product/11.jpg",
       "category": "braslet",
-      "avaleble": true,
+      "available": false,
       "article": "000002"
     },
     {
@@ -86,7 +86,7 @@
       "name": "new braslet",
       "price": "300",
       "description": "bjhg giig highg ghihy",
-      "avaleble": true,
+      "available": true,
       "article": "00303",
       "done": false,
       "image": "/assets/product/about us.jpg",
@@ -97,7 +97,7 @@
       "name": "новый браслет 2",
       "price": "789",
       "description": "рывпиарцкпиалцруиа гйшцрвшйцуг",
-      "avaleble": true,
+      "available": true,
       "article": "00304",
       "done": false,
       "image": "/assets/product/google.png",
@@ -108,11 +108,33 @@
       "name": "new Test",
       "price": "123",
       "description": "sdfbgvksdbgkshj",
-      "avaleble": true,
+      "available": true,
       "article": "00300",
       "done": false,
       "image": "/assets/product/google.png",
       "id": "rb-OSsI"
+    },
+    {
+      "category": "brelok",
+      "name": "брелок",
+      "price": "200",
+      "description": "тест",
+      "available": true,
+      "article": "001",
+      "done": false,
+      "image": "/assets/product/png-transparent-bagel-lox-ham-bagel-safesearch-bagel-rim.png",
+      "id": "SGOyg_i"
+    },
+    {
+      "category": "brosh",
+      "name": "брошь",
+      "price": "300",
+      "description": "тест",
+      "available": true,
+      "article": "002",
+      "done": false,
+      "image": "/assets/product/png-transparent-bagel-lox-ham-bagel-safesearch-bagel-rim.png",
+      "id": "DMugC5H"
     }
   ],
   "form": [
@@ -171,7 +193,8 @@
       "year": 2024,
       "month": 7,
       "day": 2,
-      "id": 2
+      "id": 2,
+      "done": false
     }
   ],
   "forGraps": [
@@ -288,15 +311,76 @@
         }
       ],
       "id": 9
+    },
+    {
+      "dateOrder": "2024-07-07T16:32:58.872Z",
+      "year": 2024,
+      "month": 7,
+      "day": 7,
+      "products": [
+        {
+          "id": "1",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "avaleble": false,
+          "article": "000001"
+        },
+        {
+          "id": "2",
+          "name": "это совсем не браслет",
+          "price": "750",
+          "description": "этот браслет нужно насить на ушах",
+          "image": "/assets/product/11.jpg",
+          "category": "braslet",
+          "avaleble": true,
+          "article": "000002"
+        }
+      ],
+      "id": 10
     }
   ],
   "news": {
-    "slider": [
-      {
-        "image": "",
-        "text": ""
-      }
-    ],
-    "newsText": ""
-  }
+    "title": "это новые новости",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni atque ea eum exercitationem rerum alias praesentium saepe quaerat animi nemo reiciendis tempore esse sequi odit, dicta molestias quod expedita maxime!\n      Minima, nobis. Rerum aperiam reiciendis, et aliquam nemo, pariatur iure omnis qui ratione optio asperiores assumenda modi sapiente delectus explicabo eligendi nostrum ab. Mollitia magni laudantium necessitatibus repellat molestias autem?\n      Veniam accusamus id reprehenderit tempore, in harum laudantium incidunt doloremque, error maxime distinctio ad est beatae? Doloribus voluptatem suscipit, ullam quasi et deleniti harum atque voluptates obcaecati quos excepturi incidunt.\n      Asperiores labore, similique, suscipit vel facere ipsa cumque repellat culpa repudiandae incidunt voluptatum dolorum recusandae minima iste corporis sapiente ea provident. Ad numquam soluta vel molestiae laudantium consequuntur autem impedit.\n      Minima, sapiente placeat. Numquam iste, nihil eum dicta mollitia distinctio assumenda placeat? Dicta exercitationem sunt, corporis nobis atque deserunt officia asperiores repellendus voluptatibus provident, a, inventore reprehenderit dolores quos qui?\n      Natus assumenda labore id dolorem, voluptate, repellendus optio doloribus inventore iure voluptas consequatur dolore nisi earum blanditiis itaque qui, totam recusandae ducimus fugiat quasi deserunt! Laudantium voluptas ut aliquam! Enim?\n      Quidem, dolores similique et dignissimos voluptatibus a enim esse delectus blanditiis harum, consequatur debitis magni doloremque porro! Illo iure dolorum officia, qui quisquam accusantium suscipit nulla adipisci explicabo, labore quidem!\n      Ea aspernatur quas alias similique exercitationem totam excepturi consequatur doloribus non dolores, magnam tempore architecto doloremque earum voluptates explicabo eius vel. Illo molestiae nesciunt voluptas excepturi officia minima praesentium numquam!\n",
+    "images": [
+      "/assets/product/logo.jpg",
+      "/assets/product/my-logo.jpg",
+      "/assets/product/photo_2024-07-07_13-34-48.jpg"
+    ]
+  },
+  "comments": [
+    {
+      "User": "admin",
+      "text": "hsdgfkshadgbfvkasdhjgbcvbcakdjcgvhajdhsf qejhfjdhfjweddfh",
+      "id": 1
+    },
+    {
+      "User": "mail",
+      "text": " dsfkhbsdkhjvvb ehfgadskjjchw iuefhiouaodshcw qewudfhaioeuefh iuehffiouiadshf iuehiufh weiuheufhwe iueuhifuhwe f",
+      "id": 2
+    },
+    {
+      "User": "michael",
+      "text": "sdgfbhsdkhjfh euhfoweuhf owuehfouihfow ewouehfowuehf ouwehfuwaererhf wuefhwiueohgf iwuEHGFIWUOE EGFHWUFHW FIUWEHFOUWERFHO qwhfouwehf oDUJH GFQOWUEhf iuwerghofu WHEUQWGHETFOFU",
+      "id": 3
+    },
+    {
+      "User": "michael",
+      "text": "KDSBGVIWRW WEYUFGHWIDSUDGFH WUIEETHFIUWEHYF WERFHIUWERHGFE4 WIUEWRHGFIUEWRGHGF IWUERRGFHIUWRHGFEW R4IUWEHFIUEWRGH FFWEIYUGYHEWRI UG\n",
+      "id": 4
+    },
+    {
+      "User": "admin",
+      "text": "giyert ieurthyh ertiuhyet e5uhy e5yiuhre5t 45iuthg rtgh",
+      "id": 5
+    },
+    {
+      "User": "admin",
+      "text": "рпгнп пн8пе 8н7ен8грн 9878н9 9787н9р 98\n",
+      "id": 6
+    }
+  ]
 }

@@ -11,8 +11,10 @@ import OneProduct from './pages//OneProduct/OneProduct'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SuccessEdit from './pages/AdminPanel/EditProduct/SuccessEdit/SuccessEdit';
 import SuccessAdd from './pages/AdminPanel/AddProduct/SuccessAdd/SuccessAdd';
-import Chart from './pages/AdminPanel/Graphs/Graphs'
+import Chart from './pages/AdminPanel/Graphs/Graphs';
 import News from './pages/Home/News/News';
+import SuccessAddNews from './pages/AdminPanel/AddNews/successAddNews';
+import AllComments from './pages/Home/AllComments/AllComments';
 
 function App() {
   const location = useLocation();
@@ -26,6 +28,7 @@ function App() {
               <Route path={''} element={<Home />} />
               <Route path={'Cart'} element={<Cart />} />
               <Route path="/oneproduct/:id" element={<OneProduct />} />
+              <Route path ='AllComments' element={<AllComments/>}/>
             </Route>
             <Route path={'Login'} element={<Login />} />
             <Route path={'Registration'} element={<Registration />} />
@@ -34,6 +37,7 @@ function App() {
             <Route path={'Success'} element={<SuccessOrder/>} />
             <Route path={'SuccessEdit'} element={<SuccessEdit/>} />
             <Route path={'SuccessAdd'} element={<SuccessAdd/>} />
+            <Route path={'sucsessAddNews'} element ={<SuccessAddNews/>}/>
             <Route path={'chart'} element={<Chart/>} />
           </Routes>
         </CSSTransition>

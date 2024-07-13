@@ -12,7 +12,7 @@ import AddNews from './AddNews/AddNews';
 import Users from './Users/Users';
 
 import { stateAction } from '../../redux/Reducer/stateSlice';
-import Comments from './Users/Comments/Comments';
+import Comments from './Comments/Comments';
 
 function AdminPanel() {
   const [selectedItem, setSelectedItem] = useState(() => {
