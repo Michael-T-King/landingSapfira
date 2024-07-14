@@ -5,29 +5,31 @@ import { useNavigate } from 'react-router-dom';
 import './CommentPage.scss';
 import { addComment, fetchComment } from '../../../redux/Reducer/commentSlice';
 import AllComments from '../AllComments/AllComments';
+import { getUser } from '../../../redux/Reducer/users';
 
 function CommentPage() {
-  const usersStatus = useSelector((state) => state.userStateSlice.userState);
+  const user = useSelector((state) => state.userSlice.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [text, setText] = useState('');
   const [postData, setPostData] = useState([]);
   const [blockStatus, setBlockStatus] = useState([]);
-
-  const userStatus = usersStatus.length > 0 ? usersStatus[0].status : null;
-  const userName = usersStatus.length > 0 ? usersStatus[0].user?.user?.userName : null;
+  const [User, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
   const sendPost = async () => {
+    if(text !== '') {
     const post = {
-      User: userName,
+      User: User?.user.userName,
       text: text,
     };
     try {
       await axios.post('http://localhost:8080/comments', post);
       dispatch(addComment(post));
+      setText(''); 
     } catch (error) {
       console.error('Unable to send post');
     }
+  }
   };
 
   const getPost = async () => {
@@ -43,6 +45,7 @@ function CommentPage() {
   const getUsers = async () => {
     try {
       const response = await axios.get('http://localhost:8080/users');
+      dispatch(getUser(response.data));
       setBlockStatus(response.data);
     } catch (error) {
       console.error('Unable to get block status');
@@ -58,14 +61,12 @@ function CommentPage() {
     navigate('/AllComments');
   };
 
-  const Block = blockStatus
-    .filter((el) => el.userName === userName && el.userName !== null)
-    .map((el) => el.block);
-
+  const isBlocked = blockStatus.some((el) => el.userName === User?.user.userName && el.block);
+  
   const placeholderText = () => {
-    if (!userStatus) {
+    if (!User?.user.userName) {
       return 'Только зарегистрированные пользователи могут оставлять отзывы';
-    } else if (Block[0]) {
+    } else if (isBlocked) {
       return 'Вы заблокированы за нарушение политики сайта и не можете оставлять отзывы';
     } else {
       return 'Оставьте свой отзыв';
@@ -98,14 +99,15 @@ function CommentPage() {
           </ul>
           <button onClick={goToAllComments} className='login__btn'>Читать все комментарии</button>
           <textarea
-            disabled={!userStatus || Block[0]}
+            disabled={!User || isBlocked}
             maxLength='1000'
             name='add-comment'
             id='add__comments'
             placeholder={placeholderText()}
+            value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
-          <button onClick={sendPost} className='login__btn'>Опубликовать</button>
+          <button onClick={sendPost} className='login__btn' disabled={!User || isBlocked}>Опубликовать</button>
         </div>
       </div>
     </section>

@@ -1,12 +1,12 @@
 {
   "clicks": {
-    "logo1": 0,
+    "logo1": 3,
     "main": 0,
     "contacts": 0,
-    "delivery": 0,
+    "delivery": 10,
     "cart": 0,
-    "login": 3,
-    "mainPick": 0,
+    "login": 2,
+    "mainPick": 17,
     "firstBlock": 0,
     "homeOrder": 0,
     "secondBlock": 0,
@@ -30,7 +30,7 @@
       "phone": "123456789",
       "id": 1,
       "block": false,
-      "status": true
+      "status": false
     },
     {
       "email": "mail@mail.ru",
@@ -57,7 +57,7 @@
       "phone": "+996551465444",
       "id": 4,
       "block": true,
-      "status": true
+      "status": false
     }
   ],
   "products": [
@@ -135,6 +135,17 @@
       "done": false,
       "image": "/assets/product/png-transparent-bagel-lox-ham-bagel-safesearch-bagel-rim.png",
       "id": "DMugC5H"
+    },
+    {
+      "category": "earring",
+      "name": " серьги",
+      "price": "8000р",
+      "description": "аоаоаонпшнгшпш нпешнгпешнгпе нгшпешнгпе",
+      "available": true,
+      "article": "100",
+      "done": false,
+      "image": "/",
+      "id": "xYjWi0d"
     }
   ],
   "form": [
@@ -340,13 +351,32 @@
         }
       ],
       "id": 10
+    },
+    {
+      "dateOrder": "2024-07-14T07:59:01.666Z",
+      "year": 2024,
+      "month": 7,
+      "day": 14,
+      "products": [
+        {
+          "id": "1",
+          "name": "this is not braslet",
+          "price": "750",
+          "description": "этот браслет сделан для того чтобы быть браслетом.\n вес: 600 грамм \n длина: 35см.\n цвет: разный",
+          "image": "/assets/product/braslet.jpg",
+          "category": "braslet",
+          "available": true,
+          "article": "000001"
+        }
+      ],
+      "id": 11
     }
   ],
   "news": {
     "title": "это новые новости",
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni atque ea eum exercitationem rerum alias praesentium saepe quaerat animi nemo reiciendis tempore esse sequi odit, dicta molestias quod expedita maxime!\n      Minima, nobis. Rerum aperiam reiciendis, et aliquam nemo, pariatur iure omnis qui ratione optio asperiores assumenda modi sapiente delectus explicabo eligendi nostrum ab. Mollitia magni laudantium necessitatibus repellat molestias autem?\n      Veniam accusamus id reprehenderit tempore, in harum laudantium incidunt doloremque, error maxime distinctio ad est beatae? Doloribus voluptatem suscipit, ullam quasi et deleniti harum atque voluptates obcaecati quos excepturi incidunt.\n      Asperiores labore, similique, suscipit vel facere ipsa cumque repellat culpa repudiandae incidunt voluptatum dolorum recusandae minima iste corporis sapiente ea provident. Ad numquam soluta vel molestiae laudantium consequuntur autem impedit.\n      Minima, sapiente placeat. Numquam iste, nihil eum dicta mollitia distinctio assumenda placeat? Dicta exercitationem sunt, corporis nobis atque deserunt officia asperiores repellendus voluptatibus provident, a, inventore reprehenderit dolores quos qui?\n      Natus assumenda labore id dolorem, voluptate, repellendus optio doloribus inventore iure voluptas consequatur dolore nisi earum blanditiis itaque qui, totam recusandae ducimus fugiat quasi deserunt! Laudantium voluptas ut aliquam! Enim?\n      Quidem, dolores similique et dignissimos voluptatibus a enim esse delectus blanditiis harum, consequatur debitis magni doloremque porro! Illo iure dolorum officia, qui quisquam accusantium suscipit nulla adipisci explicabo, labore quidem!\n      Ea aspernatur quas alias similique exercitationem totam excepturi consequatur doloribus non dolores, magnam tempore architecto doloremque earum voluptates explicabo eius vel. Illo molestiae nesciunt voluptas excepturi officia minima praesentium numquam!\n",
     "images": [
-      "/assets/product/logo.jpg",
+      "/assets/product/logo2.jpg",
       "/assets/product/my-logo.jpg",
       "/assets/product/photo_2024-07-07_13-34-48.jpg"
     ]
@@ -379,8 +409,23 @@
     },
     {
       "User": "admin",
-      "text": "рпгнп пн8пе 8н7ен8грн 9878н9 9787н9р 98\n",
+      "text": "new post",
       "id": 6
+    },
+    {
+      "User": "michael",
+      "text": "this is my second post\n",
+      "id": 7
+    },
+    {
+      "User": "admin",
+      "text": "new post",
+      "id": 9
+    },
+    {
+      "User": "admin",
+      "text": "this is any post at this day\n",
+      "id": 10
     }
   ]
 }

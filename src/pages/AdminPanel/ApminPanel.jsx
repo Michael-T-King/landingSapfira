@@ -13,6 +13,7 @@ import Users from './Users/Users';
 
 import { stateAction } from '../../redux/Reducer/stateSlice';
 import Comments from './Comments/Comments';
+import Online from './Online/Online';
 
 function AdminPanel() {
   const [selectedItem, setSelectedItem] = useState(() => {
@@ -24,8 +25,13 @@ const dispatch = useDispatch();
   let state = useSelector(state => state.stateSlice.State);
 
  useEffect(()=>{
-  if (state) {
-    setSelectedItem('Пользователи')
+  switch (state) {
+    case 'пользователи':
+    return setSelectedItem('Пользователи');
+    case 'онлайн':
+      return setSelectedItem('Онлайн'); 
+    default:
+      break;
   }
  }, [state]);
 
@@ -34,7 +40,7 @@ const dispatch = useDispatch();
       localStorage.setItem('selectedItem', JSON.stringify(itemName));
   
       if (itemName !== 'Пользователи') {
-        dispatch(stateAction(false));
+        dispatch(stateAction(null));
 
       }
     };
@@ -58,7 +64,10 @@ const dispatch = useDispatch();
         return <Comments/>;
       case 'Пользователи':
           return <Users/>;
-      default:
+      case 'Онлайн':
+          return <Online/>;
+      default: 
+      
         return <div>ничего не найдено</div>;
     }
   };

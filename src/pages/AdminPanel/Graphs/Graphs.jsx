@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../../redux/Reducer/stateSlice';
 import usersIcon from '../../../images/user.png'
 import onlineUsers from '../../../images/online.png'
+import { clicksCounter } from '../../../redux/Reducer/clickSlice';
 
 
 
@@ -82,8 +83,8 @@ function Chart() {
   const fetchClicks = async() => {
     try {
       const response = await axios.get('http://localhost:8080/clicks');
+      dispatch(clicksCounter(response.clicks));
       setClicks(response.data);
-      // console.log( `'это для графика'${clicks.logo1}`)
     } catch(error) {
       console.error('Error fetching clicks:', error);
     }
@@ -251,6 +252,14 @@ useEffect(()=>{
 const handleState = (value) => {
   dispatch(stateAction(value));
 };
+
+const handleOnlineUsers = () =>{
+  if (!users || users.length === 0) {
+    return 0;
+  }
+const online = users.filter(el => el.status)
+return online.length
+}
 
 
 
@@ -465,15 +474,34 @@ borderColor: [
       options={doughnutOptions}/>
   </div>
 
-  <div className="customers__box">
-  <div onClick={() =>  handleState(true)} className="customers">
-<h3 className="customers__title">Колличество зарегистрированных пользователей</h3>
-      <div className='content__box'>
-      <img  src={onlineUsers} alt="" className="customers__img" />
-      <h2 className="users__data">{handleUsers()}</h2>
+    <div className="customers__box">
+    <div onClick={() => handleState('пользователи')} className="customers">
+  <h3 className="customers__title">Колличество зарегистрированных пользователей</h3>
+  <div className='users__admin-box'>
+          <div className='content__box'>
+          <img  src={onlineUsers} alt="" className="customers__img" />
+          <h2 className="users__data">{handleUsers()}</h2>
+          </div>
+        </div>
+        <div className="customers__online">
+  
+        </div>
       </div>
-    </div>
-    <div className="customers__online"></div>
+  
+  
+ 
+    <div onClick={() => handleState('онлайн')} className="online__box">
+  <h3 className="online__title-color">Колличество пользователей онлайн</h3>
+  <div className='users__admin-box'>
+          <div className='content__box'>
+          <img  src={usersIcon} alt="" className="customers__img" />
+          <h2 className="users__data">{handleOnlineUsers()}</h2>
+          </div>
+        </div>
+        <div className="customers__online">
+  
+        </div>
+      </div>
   </div>
 </div>
 

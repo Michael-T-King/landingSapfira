@@ -61,7 +61,8 @@ function Comments() {
     <section>
       {comments.map(el => (
         <div key={el.id} className='admin__comments'>
-          <h3 className={`${getUserStatus(el.User) ? 'green' : ''} admin__comment-user`}>
+          <div className={`${getUserStatus(el.User) ? 'green' : 'gray'} status__user`}></div>
+          <h3 className=' admin__comment-user'>
             {el.User}
           </h3>
           <p className='admin__comment-text'>{el.text}</p>

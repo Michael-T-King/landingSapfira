@@ -114,21 +114,23 @@ const Header = () => {
   const [userStatus, setUserStatus] = useState([]);
 
   useEffect(() => {
-    updateStatus(user?.user?.id, true);
+    
   }, [dispatch, user]);
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('user')));
-  }, [location]);
+    // updateStatus(user?.user.id, true);
+  }, [location, user]);
 
   const isSelected = (path) => {
     return location.pathname === path ? 'selected' : '';
   };
 
   const updateStatus = async (userId, status) => {
+    console.log(`${userId}`);
     try {
       await axios.patch(`http://localhost:8080/users/${userId}`, { status });
-      console.log(`Status updated to ${status}`);
+      
     } catch (error) {
       console.error('Unable to update status', error);
     }
@@ -136,8 +138,8 @@ const Header = () => {
 
   useEffect(()=>{
   const handleSiteExit = async () => {
-    if (user?.user && user?.user?.id) {
-      await updateStatus(user?.user?.id, false);
+    if (user?.user && user?.user.id) {
+      await updateStatus(user?.user.id, false);
     }
   };
 
@@ -148,8 +150,8 @@ const Header = () => {
 }, [user?.user]);
 
   const logout = async () => {
-    if (user && user?.user && user?.user?.id) {
-      await updateStatus(user?.user?.id, false);
+    if (user && user?.user && user?.user.id) {
+      await updateStatus(user?.user.id, false);
     }
     localStorage.removeItem('user');
     setUser(null);

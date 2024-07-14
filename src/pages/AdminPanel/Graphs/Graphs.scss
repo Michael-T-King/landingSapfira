@@ -423,9 +423,17 @@ justify-content: center;
   margin-bottom: 3rem;
 }
 
+.users__admin-box {
+  position: relative;
+  display: block;
+  
+}
+
 .customers__box {
+  display: block;
   position: relative;
   margin-left: 6.5rem;
+
 }
 
 .customers {
@@ -438,6 +446,7 @@ justify-content: center;
   border-radius: 1.5rem;
   overflow: hidden;
   z-index: 2;
+  margin-bottom: 4rem;
 
   &::before {
     content: '';
@@ -467,12 +476,59 @@ justify-content: center;
     }
 }
 
+.online__box {
+  position: relative;
+  width: 30rem;
+  height: 15rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  z-index: 2;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../images/cels.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0; 
+    opacity: 0.2;
+  }
+  
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(17, 128, 13, 1), rgba(2, 250, 130, 0.5));
+    z-index: 0; 
+    border-radius: 0.4rem; 
+    }
+}
+
 .customers__title {
   font-family: Fira Sans, serif;
   color: #f2f2f2;
   margin: 1rem 0;
-  z-index: 2;
+  z-index: 999;
   cursor: default;
+}
+
+.online__title-color {
+  position: relative;
+  font-family: Fira Sans, serif;
+  color: #ffffff;
+  margin: 1rem 0;
+  text-align: center;
+  cursor: default;
+  opacity: 1;
+  z-index: 999;
 }
 
 .content__box {
@@ -482,6 +538,8 @@ justify-content: center;
   height: 100%;
 justify-content: center;
 }
+
+
 
 .customers__img {
   position: absolute;

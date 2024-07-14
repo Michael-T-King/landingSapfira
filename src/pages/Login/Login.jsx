@@ -68,10 +68,11 @@ function Login() {
   };
 
   const logout = async () => {
-
+    if (user && user?.user && user?.user?.id) {
       console.log(`Logging out user ${user.user.id}`);
       await updateStatus(user.user.id, false);
       dispatch(logoutUser());
+    }
       localStorage.removeItem('user');
       setUser({});
       navigate('/login');

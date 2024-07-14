@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { getUsers, removeUser } from '../../../redux/Reducer/stateSlice';
-import './users.scss';
 import { addUserState } from '../../../redux/Reducer/userStateSlice';
 
-function Users() {
+function Online() {
   const dispatch = useDispatch();
   const usersOff = useSelector(state => state.stateSlice.data);
   const usersStatus = useSelector(state => state.userStateSlice.userState);
@@ -61,9 +60,9 @@ function Users() {
         </thead>
         <tbody>
           {usersOff && usersOff.length > 0 ? (
-            usersOff.map((el, idx) => (
+            usersOff.filter(el => el.status).map((el, idx) => (
               <tr key={el.id} className={el.block ? 'blocked__user' : ''}>
-              <td>{idx}</td>
+              <td>{idx+1}</td>
                 <td>{el.userName}</td>
                 <td>{el.email}</td>
                 <td>{el.phone}</td>
@@ -106,4 +105,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Online
