@@ -1,13 +1,13 @@
 {
   "clicks": {
-    "logo1": 3,
+    "logo1": 5,
     "main": 0,
-    "contacts": 0,
-    "delivery": 10,
-    "cart": 0,
-    "login": 2,
+    "contacts": 1,
+    "delivery": 14,
+    "cart": 1,
+    "login": null,
     "mainPick": 17,
-    "firstBlock": 0,
+    "firstBlock": 1,
     "homeOrder": 0,
     "secondBlock": 0,
     "footerLogo": 0,
@@ -30,7 +30,7 @@
       "phone": "123456789",
       "id": 1,
       "block": false,
-      "status": false
+      "status": true
     },
     {
       "email": "mail@mail.ru",
@@ -206,6 +206,29 @@
       "day": 2,
       "id": 2,
       "done": false
+    },
+    {
+      "name": "новый",
+      "email": "new@new.ru",
+      "address": "12346789",
+      "phone": "123456789",
+      "description": "new test",
+      "products": [
+        {
+          "id": "2",
+          "name": "это совсем не браслет",
+          "price": "750",
+          "description": "этот браслет нужно насить на ушах",
+          "image": "/assets/product/11.jpg",
+          "category": "braslet",
+          "available": false,
+          "article": "000002"
+        }
+      ],
+      "year": 2024,
+      "month": 7,
+      "day": 14,
+      "id": 3
     }
   ],
   "forGraps": [
@@ -370,6 +393,25 @@
         }
       ],
       "id": 11
+    },
+    {
+      "dateOrder": "2024-07-14T16:33:31.760Z",
+      "year": 2024,
+      "month": 7,
+      "day": 14,
+      "products": [
+        {
+          "id": "2",
+          "name": "это совсем не браслет",
+          "price": "750",
+          "description": "этот браслет нужно насить на ушах",
+          "image": "/assets/product/11.jpg",
+          "category": "braslet",
+          "available": false,
+          "article": "000002"
+        }
+      ],
+      "id": 12
     }
   ],
   "news": {
@@ -426,6 +468,11 @@
       "User": "admin",
       "text": "this is any post at this day\n",
       "id": 10
+    },
+    {
+      "User": "admin",
+      "text": "новый комментарий",
+      "id": 11
     }
   ]
 }

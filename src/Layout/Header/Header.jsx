@@ -119,8 +119,11 @@ const Header = () => {
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('user')));
-    // updateStatus(user?.user.id, true);
   }, [location, user]);
+
+  useEffect(()=>{
+    updateStatus(user?.user.id, true);
+  },[]);
 
   const isSelected = (path) => {
     return location.pathname === path ? 'selected' : '';

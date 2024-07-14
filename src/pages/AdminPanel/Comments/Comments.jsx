@@ -58,8 +58,8 @@ function Comments() {
   };
 
   return (
-    <section>
-      {comments.map(el => (
+    <section className='comment__section'>
+      {[...comments].reverse().map(el => (
         <div key={el.id} className='admin__comments'>
           <div className={`${getUserStatus(el.User) ? 'green' : 'gray'} status__user`}></div>
           <h3 className=' admin__comment-user'>

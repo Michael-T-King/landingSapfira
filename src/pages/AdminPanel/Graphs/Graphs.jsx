@@ -75,7 +75,7 @@ function Chart() {
   useEffect(() => {
     fetchOrders();
     fetchClicks();
-  }, [orders]);
+  }, []);
 
 
 

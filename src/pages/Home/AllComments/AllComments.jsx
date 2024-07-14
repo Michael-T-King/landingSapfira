@@ -31,7 +31,7 @@ function AllComments() {
   return (
     <section className='all__comments'>
     <div className='container'>
-      {allComments.map((el, index) => (
+      {[...allComments].reverse().map((el, index) => (
       
   <div className='comment__box'>
               <div className="comment__users">{el.User}</div>
