@@ -1,26 +1,26 @@
 {
   "clicks": {
-    "logo1": 5,
-    "main": 0,
-    "contacts": 1,
+    "logo1": 4,
+    "main": 2,
+    "contacts": 4,
     "delivery": 14,
     "cart": 1,
-    "login": null,
-    "mainPick": 17,
+    "login": 0,
+    "mainPick": 5,
     "firstBlock": 1,
     "homeOrder": 0,
     "secondBlock": 0,
     "footerLogo": 0,
-    "footerMain": 0,
-    "footerContacts": 0,
-    "footerDelivery": 0,
-    "footerCart": 0,
+    "footerMain": 2,
+    "footerContacts": 5,
+    "footerDelivery": 4,
+    "footerCart": 1,
     "developer": 0,
     " footerCart": 0,
     "vk": 0,
     "whatsapp": 0,
     "telegram": 0,
-    "btnUp": 0
+    "btnUp": 4
   },
   "users": [
     {

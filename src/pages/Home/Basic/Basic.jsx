@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import './basic.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setAllProducts } from '../../../redux/Reducer/products.js';
 
 function Basic() {
   const dispatch = useDispatch();
-  const location = useLocation();
   const { data = [] } = useSelector((state) => state.products);
 
   const [expanded, setExpanded] = useState(false);
-  
+  const [visibleCount, setVisibleCount] = useState(4);
+
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -22,45 +22,64 @@ function Basic() {
       }
     };
     getProducts();
-  }, [dispatch, location.pathname]);
+  }, [dispatch]);
 
-  // Filtered data by category
-  const braslets = data.filter((element) => element?.category === 'braslet');
-  const brelok = data.filter((element) => element?.category === 'brelok');
-  const brosh = data.filter((element) => element?.category === 'brosh');
-  const kolie = data.filter((element) => element?.category === 'kolie');
-  const magnet = data.filter((element) => element?.category === 'magnet');
-  const kit = data.filter((element) => element?.category === 'kit');
-  const pendant = data.filter((element) => element?.category === 'pendant');
-  const earring = data.filter((element) => element?.category === 'earring');
-  const souvenir = data.filter((element) => element?.category === 'souvenir');
-  const any = data.filter((element) => element?.category === 'any');
+  const categories = useMemo(() => {
+    const braslets = [];
+    const brelok = [];
+    const brosh = [];
+    const kolie = [];
+    const magnet = [];
+    const kit = [];
+    const pendant = [];
+    const earring = [];
+    const souvenir = [];
+    const any = [];
+    
+    data.forEach(element => {
+      switch (element.category) {
+        case 'braslet': braslets.push(element); break;
+        case 'brelok': brelok.push(element); break;
+        case 'brosh': brosh.push(element); break;
+        case 'kolie': kolie.push(element); break;
+        case 'magnet': magnet.push(element); break;
+        case 'kit': kit.push(element); break;
+        case 'pendant': pendant.push(element); break;
+        case 'earring': earring.push(element); break;
+        case 'souvenir': souvenir.push(element); break;
+        case 'any': any.push(element); break;
+        default: break;
+      }
+    });
 
-  const [visibleCount, setVisibleCount] = useState(4);
+    return { braslets, brelok, brosh, kolie, magnet, kit, pendant, earring, souvenir, any };
+  }, [data]);
 
   const showMoreProducts = () => {
     setVisibleCount(visibleCount + 4); 
     setExpanded(true);
   };
 
-  const showLessProduct = () => {
+  const showLessProducts = () => {
     setVisibleCount(4);
     setExpanded(false);
   };
 
-  const renderProducts = (products) => (
+  const renderProducts = useCallback((products) => (
     products.slice(0, visibleCount).map((el) => (
       <li className={`basic__items-product ${expanded ? 'expanded' : ''}`} key={el.id}>
         <Link to={`/oneproduct/${el.id}`}>
           <img src={el.image} alt="" className="basic__items-products-img" />
-          <p className={el.available ? "product__available" : "product__available product__not-available"}>{el.available ? "В наличии" : "Нет в наличии"}</p>
+          <p className={el.available ? "product__available" : "product__available product__not-available"}>
+            {el.available ? "В наличии" : "Нет в наличии"}
+          </p>
           <p className="basic__product-price">{el.price}</p>
           <p className="basic__product-quantity">1 шт.</p>
           <p className="basic__product-more">{el.name}</p>
         </Link>
       </li>
     ))
-  );
+  ), [visibleCount, expanded]);
 
   return (
     <section>
@@ -71,22 +90,20 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Браслеты</p>
             <ul className="basic__items-products-list">
-              {renderProducts(braslets)}
+              {renderProducts(categories.braslets)}
             </ul>
-            {visibleCount && (
-              <>
-                <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
-                {visibleCount > 4 && <button className="btn__more" onClick={showLessProduct}>Скрыть</button>}
-              </>
+            {visibleCount < categories.braslets.length && (
+              <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
+            {visibleCount > 4 && <button className="btn__more" onClick={showLessProducts}>Скрыть</button>}
           </li>
 
           <li className="basic__items">
             <p className='basic__itens-text'>Брелоки</p>
             <ul className="basic__items-products-list">
-              {renderProducts(brelok)}
+              {renderProducts(categories.brelok)}
             </ul>
-            {visibleCount < brelok.length && (
+            {visibleCount < categories.brelok.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -94,9 +111,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Броши</p>
             <ul className="basic__items-products-list">
-              {renderProducts(brosh)}
+              {renderProducts(categories.brosh)}
             </ul>
-            {visibleCount < brosh.length && (
+            {visibleCount < categories.brosh.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -104,9 +121,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Колье</p>
             <ul className="basic__items-products-list">
-              {renderProducts(kolie)}
+              {renderProducts(categories.kolie)}
             </ul>
-            {visibleCount < kolie.length && (
+            {visibleCount < categories.kolie.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -114,9 +131,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Магниты</p>
             <ul className="basic__items-products-list">
-              {renderProducts(magnet)}
+              {renderProducts(categories.magnet)}
             </ul>
-            {visibleCount < magnet.length && (
+            {visibleCount < categories.magnet.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -124,9 +141,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>наборы</p>
             <ul className="basic__items-products-list">
-              {renderProducts(kit)}
+              {renderProducts(categories.kit)}
             </ul>
-            {visibleCount < kit.length && (
+            {visibleCount < categories.kit.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -134,9 +151,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Подвески, кулоны</p>
             <ul className="basic__items-products-list">
-              {renderProducts(pendant)}
+              {renderProducts(categories.pendant)}
             </ul>
-            {visibleCount < pendant.length && (
+            {visibleCount < categories.pendant.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -144,9 +161,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Серьги</p>
             <ul className="basic__items-products-list">
-              {renderProducts(earring)}
+              {renderProducts(categories.earring)}
             </ul>
-            {visibleCount < earring.length && (
+            {visibleCount < categories.earring.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -154,9 +171,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Сувениры</p>
             <ul className="basic__items-products-list">
-              {renderProducts(souvenir)}
+              {renderProducts(categories.souvenir)}
             </ul>
-            {visibleCount < souvenir.length && (
+            {visibleCount < categories.souvenir.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>
@@ -164,9 +181,9 @@ function Basic() {
           <li className="basic__items">
             <p className='basic__itens-text'>Разное</p>
             <ul className="basic__items-products-list">
-              {renderProducts(any)}
+              {renderProducts(categories.any)}
             </ul>
-            {visibleCount < any.length && (
+            {visibleCount < categories.any.length && (
               <button className="btn__more" onClick={showMoreProducts}>Ещё</button>
             )}
           </li>

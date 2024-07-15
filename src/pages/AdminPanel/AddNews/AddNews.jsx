@@ -48,7 +48,6 @@ setText(response.data.text);
       dispatch(addNews(news));
       navigate('/sucsessAddNews');
     } catch (error) {
-      console.log('не удалось загрузить новости');
     }
   };
 

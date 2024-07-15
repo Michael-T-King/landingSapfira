@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './CommentPage.scss';
 import { addComment, fetchComment } from '../../../redux/Reducer/commentSlice';
-import AllComments from '../AllComments/AllComments';
 import { getUser } from '../../../redux/Reducer/users';
 
 function CommentPage() {
@@ -14,25 +13,25 @@ function CommentPage() {
   const [text, setText] = useState('');
   const [postData, setPostData] = useState([]);
   const [blockStatus, setBlockStatus] = useState([]);
-  const [User, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  const [User, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
 
-  const sendPost = async () => {
-    if(text !== '') {
-    const post = {
-      User: User?.user.userName,
-      text: text,
-    };
-    try {
-      await axios.post('http://localhost:8080/comments', post);
-      dispatch(addComment(post));
-      setText(''); 
-    } catch (error) {
-      console.error('Unable to send post');
+  const sendPost = useCallback(async () => {
+    if (text !== '') {
+      const post = {
+        User: User?.user.userName,
+        text: text,
+      };
+      try {
+        await axios.post('http://localhost:8080/comments', post);
+        dispatch(addComment(post));
+        setText('');
+      } catch (error) {
+        console.error('Unable to send post');
+      }
     }
-  }
-  };
+  }, [text, User, dispatch]);
 
-  const getPost = async () => {
+  const getPost = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:8080/comments');
       dispatch(fetchComment(response.data));
@@ -40,9 +39,9 @@ function CommentPage() {
     } catch (error) {
       console.error('Load comments error');
     }
-  };
+  }, [dispatch]);
 
-  const getUsers = async () => {
+  const getUsers = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:8080/users');
       dispatch(getUser(response.data));
@@ -50,20 +49,22 @@ function CommentPage() {
     } catch (error) {
       console.error('Unable to get block status');
     }
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     getPost();
     getUsers();
-  }, []);
+  }, [getPost, getUsers]);
 
-  const goToAllComments = () => {
+  const goToAllComments = useCallback(() => {
     navigate('/AllComments');
-  };
+  }, [navigate]);
 
-  const isBlocked = blockStatus.some((el) => el.userName === User?.user.userName && el.block);
-  
-  const placeholderText = () => {
+  const isBlocked = useMemo(() => {
+    return blockStatus.some((el) => el.userName === User?.user.userName && el.block);
+  }, [blockStatus, User]);
+
+  const placeholderText = useMemo(() => {
     if (!User?.user.userName) {
       return 'Только зарегистрированные пользователи могут оставлять отзывы';
     } else if (isBlocked) {
@@ -71,16 +72,21 @@ function CommentPage() {
     } else {
       return 'Оставьте свой отзыв';
     }
-  };
+  }, [User, isBlocked]);
 
-  const uniqueUsers = {};
-  const uniqueComments = [...postData].reverse().filter((el) => {
-    if (el.User && !uniqueUsers[el.User]) {
-      uniqueUsers[el.User] = true;
-      return true;
-    }
-    return false;
-  }).slice(0, 3);
+  const uniqueComments = useMemo(() => {
+    const uniqueUsers = {};
+    return [...postData]
+      .reverse()
+      .filter((el) => {
+        if (el.User && !uniqueUsers[el.User]) {
+          uniqueUsers[el.User] = true;
+          return true;
+        }
+        return false;
+      })
+      .slice(0, 3);
+  }, [postData]);
 
   return (
     <section className='commentPage'>
@@ -103,7 +109,7 @@ function CommentPage() {
             maxLength='1000'
             name='add-comment'
             id='add__comments'
-            placeholder={placeholderText()}
+            placeholder={placeholderText}
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>

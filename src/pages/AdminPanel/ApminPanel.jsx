@@ -81,7 +81,7 @@ const dispatch = useDispatch();
 
           <ul className="admin__aside-list">
           <li onClick={() => {ItemClick('Заказы'); dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Заказы' ? 'checked__items' : ''}`}>Заказы</li>
-            <li onClick={() => {ItemClick('Графики');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Графики' ? 'checked__items' : ''}`}>Графики</li>
+            <li onClick={() => {ItemClick('Графики');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Графики' ? 'checked__items' : ''}`}>Графики и пользователи</li>
 
             <li onClick={() => {ItemClick('Добавить продукт');dispatch(stateAction(false));}} className={`admin__aside-items ${selectedItem === 'Добавить продукт' ? 'checked__items' : ''}`}>Добавить продукт</li>
 

@@ -49,7 +49,6 @@ function EditProduct() {
 
   const handleCheckboxChange = (e) => {
     setAvailable(e.target.checked);
-    console.log(available)
   };
 
   const handleImageChange = (e) => {
@@ -82,7 +81,7 @@ function EditProduct() {
       dispatch(setAllProducts(await axios.get('http://localhost:8080/products').then(res => res.data)));
       navigate('/SuccessEdit');
     } catch (error) {
-      console.log('Ошибка добавления товара', error);
+      console.error('Ошибка добавления товара', error);
     }
   };
 
@@ -92,7 +91,7 @@ function EditProduct() {
       dispatch(removeProduct(id));
       setProduct(null);
     } catch {
-      console.log("Ошибка при удалении товара");
+      console.error("Ошибка при удалении товара");
     }
   };
 

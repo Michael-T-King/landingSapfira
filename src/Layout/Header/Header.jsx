@@ -9,6 +9,14 @@ import LogoViolet from '../../images/sapfira-violet.png';
 import BlueGuy from '../../images/header-img.png';
 import { addUserState } from '../../redux/Reducer/userStateSlice';
 
+const Clicks = async (updatedClicks, dispatch) => {
+  try {
+    const response = await axios.patch('http://localhost:8080/clicks', updatedClicks);
+    dispatch(clicksCounter(response.data));
+  } catch (error) {
+    console.error('Ошибка при добавлении кликов:', error);
+  }
+};
 
 const getClicks = async (dispatch) => {
   try {
@@ -16,18 +24,6 @@ const getClicks = async (dispatch) => {
     dispatch(clicksCounter(response.data));
   } catch (error) {
     console.error('Ошибка при получении кликов:', error);
-  }
-};
-
-const Clicks = async (updatedClicks, dispatch) => {
-  console.log('Отправка данных на сервер:', updatedClicks);
-
-  try {
-    const response = await axios.patch('http://localhost:8080/clicks', updatedClicks);
-    console.log('Ответ сервера:', response.data);
-    dispatch(clicksCounter(response.data));
-  } catch (error) {
-    console.error('Ошибка при добавлении кликов:', error);
   }
 };
 
@@ -65,38 +61,38 @@ export const handleClicks = (value, clicks, dispatch) => {
     case 'secondBlock':
       updatedClicks.secondBlock += 1;
       break;
-      case 'footerLogo':
-        updatedClicks.footerLogo += 1;
-        break;
+    case 'footerLogo':
+      updatedClicks.footerLogo += 1;
+      break;
     case 'footerMain':
-        updatedClicks.footerMain += 1;
-        break;
+      updatedClicks.footerMain += 1;
+      break;
     case 'footerContacts':
-        updatedClicks.footerContacts += 1;
-        break;
+      updatedClicks.footerContacts += 1;
+      break;
     case 'footerDelivery':
-        updatedClicks.footerDelivery += 1;
-        break;
+      updatedClicks.footerDelivery += 1;
+      break;
     case 'footerCart':
-          updatedClicks.footerCart += 1;
-          break;
+      updatedClicks.footerCart += 1;
+      break;
     case 'developer':
-          updatedClicks.developer += 1;
-          break;
+      updatedClicks.developer += 1;
+      break;
     case 'vk':
-          updatedClicks.vk += 1;
-          break;
+      updatedClicks.vk += 1;
+      break;
     case 'whatsapp':
-        updatedClicks.whatsapp += 1;
-        break;
+      updatedClicks.whatsapp += 1;
+      break;
     case 'telegram':
-        updatedClicks.telegram += 1;
-        break;
+      updatedClicks.telegram += 1;
+      break;
     case 'btnUp':
-        updatedClicks.btnUp += 1;
-        break;
+      updatedClicks.btnUp += 1;
+      break;
     default:
-      console.log('Неизвестное значение:', value);   
+      console.log('Неизвестное значение:', value);
   }
 
   Clicks(updatedClicks, dispatch);
@@ -107,61 +103,56 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const clicks = useSelector((state) => state.clickSlice.clicks);
-  
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
-  const [data, setData] = useState([]);
-  const [status, setStatus] = useState(false);
-  const [userStatus, setUserStatus] = useState([]);
-
-  useEffect(() => {
-    
-  }, [dispatch, user]);
-
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('user')));
-  }, [location, user]);
-
-  useEffect(()=>{
-    updateStatus(user?.user.id, true);
-  },[]);
-
-  const isSelected = (path) => {
-    return location.pathname === path ? 'selected' : '';
-  };
+  const [logoSrc, setLogoSrc] = useState(Logo);
 
   const updateStatus = async (userId, status) => {
-    console.log(`${userId}`);
     try {
       await axios.patch(`http://localhost:8080/users/${userId}`, { status });
-      
     } catch (error) {
       console.error('Unable to update status', error);
     }
   };
 
-  useEffect(()=>{
-  const handleSiteExit = async () => {
-    if (user?.user && user?.user.id) {
-      await updateStatus(user?.user.id, false);
-    }
-  };
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user')));
+  }, [location]);
 
-  window.addEventListener('beforeunload', handleSiteExit);
-  return () => {
-    window.removeEventListener('beforeunload', handleSiteExit);
-  };
-}, [user?.user]);
+  useEffect(() => {
+    if (user?.user?.id) {
+      updateStatus(user.user.id, true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleSiteExit = async () => {
+      if (user?.user?.id) {
+        await updateStatus(user.user.id, false);
+      }
+    };
+
+    window.addEventListener('beforeunload', handleSiteExit);
+    return () => {
+      window.removeEventListener('beforeunload', handleSiteExit);
+    };
+  }, [user]);
+
+  useEffect(() => {
+    const fetchInitialClicks = async () => {
+      await getClicks(dispatch);
+    };
+    fetchInitialClicks();
+  }, [dispatch]);
 
   const logout = async () => {
-    if (user && user?.user && user?.user.id) {
-      await updateStatus(user?.user.id, false);
+    if (user?.user?.id) {
+      await updateStatus(user.user.id, false);
     }
     localStorage.removeItem('user');
-    setUser(null);
+    setUser(0);
     navigate('/login');
   };
-
-  const [logoSrc, setLogoSrc] = useState(Logo);
 
   useEffect(() => {
     const titles = document.querySelectorAll('.header__titles');
@@ -206,6 +197,10 @@ const Header = () => {
     }, 200);
   };
 
+  const isSelected = (path) => {
+    return location.pathname === path ? 'selected' : '';
+  };
+
   return (
     <div className="header__box">
       <div className='container'>
@@ -216,8 +211,8 @@ const Header = () => {
             <li onClick={() => handleClicks('contacts', clicks, dispatch)} className="nav__items"><Link to=''>КОНТАКТЫ</Link></li>
             <li onClick={() => handleClicks('delivery', clicks, dispatch)} className="nav__items">ДОСТАВКА</li>
             <li onClick={() => handleClicks('cart', clicks, dispatch)} className="nav__items"><Link to='/Cart'>ОСТАВИТЬ ЗАЯВКУ</Link></li>
-            <li onClick={(event) => { logout(); handleClicks('login', clicks, dispatch) }}><Link to='/login' className={isSelected('/login')}>{user ? 'ВЫЙТИ' : 'ВОЙТИ'}</Link></li>
-            <li className="nav__items">{user?.user.userName}</li>
+            <li onClick={() => { logout(); handleClicks('login', clicks, dispatch) }}><Link to='/login' className={isSelected('/login')}>{user ? 'ВЫЙТИ' : 'ВОЙТИ'}</Link></li>
+            <li className="nav__items">{user?.user?.userName}</li>
           </ul>
         </div>
         <div className='header__banner-box'>
@@ -230,8 +225,8 @@ const Header = () => {
             <img src={BlueGuy} alt="Logo" />
           </div>
         </div>
-        <div className='admin__btn' style={{ display: user?.user.userName === 'admin' ? 'block' : 'none' }}>
-          {user?.user.userName === 'admin' && <div><Link to='/AdminPanel'>панель Администратора</Link></div>}
+        <div className='admin__btn' style={{ display: user?.user?.userName === 'admin' ? 'block' : 'none' }}>
+          {user?.user?.userName === 'admin' && <div><Link to='/AdminPanel'>панель Администратора</Link></div>}
         </div>
       </div>
     </div>

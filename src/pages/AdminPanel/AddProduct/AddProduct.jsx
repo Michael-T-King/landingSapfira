@@ -35,7 +35,7 @@ function AddProduct() {
       dispatch(setAllProducts(newProduct));
       navigate('/SuccessAdd')
     } catch (error) {
-      console.log('Ошибка добавления товара', error);
+      console.error('Ошибка добавления товара', error);
     }
   };
 

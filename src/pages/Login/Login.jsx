@@ -37,11 +37,9 @@ function Login() {
   }, [user.user]);
 
   const updateStatus = async (userId, status) => {
-    console.log(`Updating status for user ${userId} to ${status}`);
     try {
       await axios.patch(`http://localhost:8080/users/${userId}`, { status });
       setUserStatus(status);
-      console.log(`Status updated to ${status}`);
     } catch (error) {
       console.error('Unable to update status', error);
     }
@@ -69,7 +67,6 @@ function Login() {
 
   const logout = async () => {
     if (user && user?.user && user?.user?.id) {
-      console.log(`Logging out user ${user.user.id}`);
       await updateStatus(user.user.id, false);
       dispatch(logoutUser());
     }
